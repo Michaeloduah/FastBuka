@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\VendorMiddleware;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\RedirectToDashboard;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,7 +40,13 @@ Route::middleware('auth', 'verified')->group(function () {
                 Route::post('updateprofile/{id}', [DashboardController::class, 'updateVendorProfile'])->name('updateprofile');
 
                 Route::name('category.')->prefix('category')->group(function () {
-                    
+                    Route::get('index', [CategoryController::class, 'index'])->name('index');
+                    Route::get('create', [CategoryController::class, 'create'])->name('create');
+                    Route::post('store', [CategoryController::class, 'store'])->name('store');
+                    Route::get('show/{id}', [CategoryController::class, 'show'])->name('show');
+                    Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('edit');
+                    Route::post('update/{id}', [CategoryController::class, 'update'])->name('update');
+                    Route::get('{id}', [CategoryController::class, 'destroy'])->name('destroy');
                 });
             });
         });

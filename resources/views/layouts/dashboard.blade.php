@@ -23,18 +23,7 @@
 
     @yield('content')
 
-    <script>
-        document.getElementById('size').addEventListener('input', function() {
-            // Get the input field value
-            var inputSize = this.value;
-
-            // Split the input values by commas
-            var sizeArray = inputSize.split(',');
-
-            // Log the values to the console
-            console.log('Input Size:', sizeArray);
-        });
-    </script>
+    
 </body>
 
 </html>

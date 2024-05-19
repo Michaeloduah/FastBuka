@@ -105,12 +105,6 @@ class DashboardController extends Controller
             'image' => ['nullable', 'mimes:jpg,png,jpeg']
         ]);
 
-        if ($request->hasFile('image')) {
-            $img_dir = $request->file('image')->store('images/users', 'public');
-        } else {
-            $img_dir = NULL;
-        }
-
         // Only update the fields that are not null
         $user->name = $request->name ?? $user->name;
         $user->email = $request->email ?? $user->email;
