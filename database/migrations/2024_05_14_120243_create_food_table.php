@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('food', function (Blueprint $table) {
             $table->id();
-            $table->foreign('user_id');
-            $table->foreign('category_id');
+            $table->foreignId('user_id');
+            $table->foreignId('category_id');
             $table->string('name');
             $table->string('description');
             $table->string('images');
