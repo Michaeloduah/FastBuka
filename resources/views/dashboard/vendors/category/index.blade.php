@@ -5,7 +5,7 @@
         <h1 class="text-center"><strong>All Categories</strong></h1>
         <div class="m-4 ">
             <a href="{{ route('vendor.dashboard.category.create') }}"><button class="btn btn-outline-info btn-sm"><i
-                        class="bi bi-plus"></i> Add Category</button></a>
+                        class="bi bi-plus"></i> Add New Category</button></a>
         </div>
         <table id="myTable" class="table table-striped table-bordered">
             <thead>

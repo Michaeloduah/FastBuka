@@ -18,9 +18,9 @@
             <span>Products/Food</span>
             <dl>
                 <li><a class="text-decoration-none" href="{{ route('vendor.dashboard.category.index') }}"> View Categories </a></li>
-                <li><a class="text-decoration-none" href="{{ route('vendor.dashboard.category.create') }}"> Add a Category </a></li>
-                <li><a class="text-decoration-none" href=""> Add Food </a></li>
-                <li><a class="text-decoration-none" href=""> View Foods </a></li>
+                <li><a class="text-decoration-none" href="{{ route('vendor.dashboard.category.create') }}"> Add new Category </a></li>
+                <li><a class="text-decoration-none" href="{{ route('vendor.dashboard.food.index') }}"> View Foods </a></li>
+                <li><a class="text-decoration-none" href="{{ route('vendor.dashboard.food.create') }}"> Add new Food </a></li>
             </dl>
         </ol>
 

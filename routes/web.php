@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\RedirectToDashboard;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FoodController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,6 +48,16 @@ Route::middleware('auth', 'verified')->group(function () {
                     Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('edit');
                     Route::post('update/{id}', [CategoryController::class, 'update'])->name('update');
                     Route::get('{id}', [CategoryController::class, 'destroy'])->name('destroy');
+                });
+
+                Route::name('food.')->prefix('food')->group(function () {
+                    Route::get('index', [FoodController::class, 'index'])->name('index');
+                    Route::get('create', [FoodController::class, 'create'])->name('create');
+                    Route::post('store', [FoodController::class, 'store'])->name('store');
+                    Route::get('show/{id}', [FoodController::class, 'show'])->name('show');
+                    Route::get('edit/{id}', [FoodController::class, 'edit'])->name('edit');
+                    Route::post('update/{id}', [FoodController::class, 'update'])->name('update');
+                    Route::get('{id}', [FoodController::class, 'destroy'])->name('destroy');
                 });
             });
         });
