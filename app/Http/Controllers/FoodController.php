@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\User;
 use App\Models\Category;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FoodController extends Controller
 {
@@ -117,7 +118,7 @@ class FoodController extends Controller
                 $image->store('images/foods', 'public');
                 $fileNames[] = $imageName;
             }
-    
+
             $images = $fileNames;
         } else {
             $images = $food->images;
@@ -146,5 +147,36 @@ class FoodController extends Controller
         $food = Food::findOrFail($id);
         $food->delete();
         return redirect()->back()->with('message', 'Message deleted Successfully');
+    }
+
+    public function allFood()
+    {
+        $user = auth()->user();
+        $foods = Food::All();
+        return view('dashboard.users.food.index', compact('user', 'foods'));
+    }
+
+    public function details(Food $food, $id)
+    {
+        $user = auth()->user();
+        $categories = Category::All();
+        $food = Food::findOrFail($id);
+        return view('dashboard.users.food.show', compact('user', 'categories', 'food'));
+    }
+
+    public function search(Request $request)
+    {
+        $user = auth()->user();
+        $search = $request->validate([
+            'keyword' => 'required',
+        ]);
+
+
+        $foods = Food::where('name', 'LIKE', "%$request->keyword%")->get();
+        $users = User::where('name', 'LIKE', "%$request->keyword%")
+            ->where('account_type', 'vendor')
+            ->get(['name', 'email', 'phone', 'address', 'image']);
+        // dd($users, $foods);
+        return view('dashboard.users.food.result', compact('users', 'foods'));
     }
 }

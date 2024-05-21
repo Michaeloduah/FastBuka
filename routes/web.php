@@ -41,7 +41,7 @@ Route::middleware('auth', 'verified')->group(function () {
                 Route::post('updateprofile/{id}', [DashboardController::class, 'updateVendorProfile'])->name('updateprofile');
 
                 Route::name('category.')->prefix('category')->group(function () {
-                    Route::get('index', [CategoryController::class, 'index'])->name('index');
+                    Route::get('', [CategoryController::class, 'index'])->name('index');
                     Route::get('create', [CategoryController::class, 'create'])->name('create');
                     Route::post('store', [CategoryController::class, 'store'])->name('store');
                     Route::get('show/{id}', [CategoryController::class, 'show'])->name('show');
@@ -51,7 +51,7 @@ Route::middleware('auth', 'verified')->group(function () {
                 });
 
                 Route::name('food.')->prefix('food')->group(function () {
-                    Route::get('index', [FoodController::class, 'index'])->name('index');
+                    Route::get('', [FoodController::class, 'index'])->name('index');
                     Route::get('create', [FoodController::class, 'create'])->name('create');
                     Route::post('store', [FoodController::class, 'store'])->name('store');
                     Route::get('show/{id}', [FoodController::class, 'show'])->name('show');
@@ -69,6 +69,11 @@ Route::middleware('auth', 'verified')->group(function () {
                 Route::get('', [DashboardController::class, 'userDashboard'])->name('dashboard');
                 Route::get('editprofile', [DashboardController::class, 'editUserProfile'])->name('editprofile');
                 Route::post('updateprofile/{id}', [DashboardController::class, 'updateUserProfile'])->name('updateprofile');
+                Route::name('food.')->prefix('food')->group(function () {
+                    Route::get('', [FoodController::class, 'allFood'])->name('index');
+                    Route::get('show/{id}', [FoodController::class, 'details'])->name('details');
+                    Route::get('search', [FoodController::class, 'search'])->name('search');
+                });
             });
         });
     });
