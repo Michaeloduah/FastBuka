@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
+use App\Models\Category;
 use App\Models\Wishlist;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class WishlistController extends Controller
 {
@@ -13,7 +15,11 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $foods = Food::all();
+        $categories = Category::all();
+        $wishlists = Wishlist::all()->where('user_id', $user->id);
+        return view('dashboard.users.wishlist.index', compact('user', 'foods', 'categories', 'wishlists'));
     }
 
     /**
@@ -29,7 +35,17 @@ class WishlistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+        $cartitem = $request->validate([
+            'food_id' => ['required', 'unique:wishlists'],
+        ]);
+
+        $cartitem = Wishlist::create([
+            'user_id' => $user->id,
+            'food_id' => $request->input('food_id'),
+        ]);
+        
+        return redirect()->back();
     }
 
     /**
@@ -59,8 +75,10 @@ class WishlistController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Wishlist $wishlist)
+    public function destroy($id)
     {
-        //
+        $wishlist = Wishlist::findOrFail($id);
+        $wishlist->delete();
+        return redirect()->back();
     }
 }

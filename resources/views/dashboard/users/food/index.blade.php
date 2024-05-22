@@ -32,6 +32,12 @@
                     <button class="btn btn-sm btn-outline-primary m-1"><i class="bi bi-pencil-square"></i>Add to
                         Cart</button>
                 </form>
+                <form action="{{ route('user.dashboard.wishlist.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{ $food->id }}" name="food_id">
+                    <button class="btn btn-sm btn-outline-primary m-1"><i class="bi bi-pencil-square"></i>Add to
+                        Favourite</button>
+                </form>
                 <hr>
             @endforeach
         </div>

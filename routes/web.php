@@ -10,6 +10,7 @@ use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\RedirectToDashboard;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WishlistController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -78,8 +79,13 @@ Route::middleware('auth', 'verified')->group(function () {
                 Route::name('cart.')->prefix('cart')->group(function (){
                     Route::get('index', [CartItemController::class, 'index'])->name('index');
                     Route::post('store', [CartItemController::class, 'store'])->name('store');
-                    Route::get('show/{id}', [CartItemController::class, 'showProducts'])->name('show');
                     Route::get('{id}', [CartItemController::class, 'destroy'])->name('destroy');
+                });
+
+                Route::name('wishlist.')->prefix('wishlist')->group(function (){
+                    Route::get('index', [WishlistController::class, 'index'])->name('index');
+                    Route::post('store', [WishlistController::class, 'store'])->name('store');
+                    Route::get('{id}', [WishlistController::class, 'destroy'])->name('destroy');
                 });
             });
         });

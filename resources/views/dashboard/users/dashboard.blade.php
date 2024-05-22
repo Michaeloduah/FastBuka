@@ -20,7 +20,7 @@
             <span>Cart/Cart Items</span>
             <li><a href="{{ route('user.dashboard.cart.index') }}" class="text-decoration-none">My Cart</a></li>
             <span>Wishlist/Favourites</span>
-            <li><a href="" class="text-decoration-none">My Favourite</a></li>
+            <li><a href="{{ route('user.dashboard.wishlist.index') }}" class="text-decoration-none">My Favourite</a></li>
         </ol>
 
         <form action="{{ route('logout') }} " method="POST">

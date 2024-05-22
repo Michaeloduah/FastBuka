@@ -6,47 +6,35 @@
         <h3>Your Cart</h3>
 
         <div class="my-5">
-            @if (count($cartitems) <= 0)
-            <h1>Your Cart is empty</h1>
-        @else
-            {{-- <form action="{{}}" method="POST" enctype="multipart/form-data">
+            @if (count($wishlists) <= 0)
+                <h1>Your Wishlist is empty</h1>
+            @else
+                {{-- <form action="{{}}" method="POST" enctype="multipart/form-data">
                 @csrf --}}
                 <h1>Your Cart</h1>
-                @foreach ($cartitems as $cartitem)
-                    <p>Product Name: {{ $cartitem->food->name }}</p>
-                    <p>Description: {{ $cartitem->food->description }}</p>
+                @foreach ($wishlists as $wishlist)
+                    <p>Product Name: {{ $wishlist->food->name }}</p>
+                    <p>Description: {{ $wishlist->food->description }}</p>
                     <p>Images:</p>
-                    @foreach ($cartitem->food->images as $image)
+                    @foreach ($wishlist->food->images as $image)
                         <img class="thumbnail m-5" width="10%" src="{{ asset('storage/images/foods/' . $image) }}"
                             alt="">
                     @endforeach
-                    
-                    <p>Discount: {{ $cartitem->food->discount }}</p>
 
-                    <div class="mb-3">
-                        <label class="form-label" for="total_amount">Total Price:</label>
-                        <input class="form-control" value="400000" type="text" id="total_amount" name="total_amount"
-                            readonly>
-                    </div>
-                    @if ($errors->has('total_amount'))
-                        <span class="error">
-                            <span class="section-subtitle"
-                                style="margin-inline: 0px">{{ $errors->first('total_amount') }}</span>
-                        </span>
-                    @endif
+                    <p>Discount: {{ $wishlist->food->discount }}</p>
 
-                    {{-- <form action="{{ route('dashboard.user.wishlist.store') }}" method="POST">
+                    <a href="{{ route('user.dashboard.food.details', $wishlist->food->id) }}"><button
+                            class="btn btn-sm btn-outline-success m-1"><i class="bi bi-pencil-square"></i>More
+                            Details</button></a>
+                    <a href="{{ route('user.dashboard.wishlist.destroy', $wishlist->id) }}"><button
+                            class="btn btn-sm btn-outline-danger m-1"><i class="bi bi-trash"></i>Delete</button></a>
+                    <form action="{{ route('user.dashboard.cart.store') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ $user->id }}">
-                        <input type="hidden" name="product_id" value="{{ $cartitem->id }}">
-                        <button class="btn btn-sm btn-outline-success m-1"><i class="bi bi-pencil-square"></i>Add to
-                            Wishlist</button>
-                    </form> --}}
-                    <a href="{{ route('user.dashboard.food.details', $cartitem->food->id) }}"><button
-                        class="btn btn-sm btn-outline-success m-1"><i class="bi bi-pencil-square"></i>More
-                        Details</button></a>
-                    <a href="{{ route('user.dashboard.cart.destroy', $cartitem->id) }}"><button
-                        class="btn btn-sm btn-outline-danger m-1"><i class="bi bi-trash"></i>Delete</button></a>
+                        <input type="hidden" value="{{ $wishlist->food->id }}" name="food_id">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="btn btn-sm btn-outline-primary m-1"><i class="bi bi-pencil-square"></i>Add to
+                            Cart</button>
+                    </form>
                     <hr>
                 @endforeach
 
@@ -91,8 +79,8 @@
                 @endif
 
                 <button class="btn btn-sm btn-outline-info mt-3" type="submit">Place Order</button>
-            {{-- </form> --}}
-        @endif
+                {{-- </form> --}}
+            @endif
         </div>
     </div>
 @endsection
