@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
+use App\Models\Food;
 use App\Models\CartItem;
-use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CartItemController extends Controller
 {
@@ -13,7 +16,15 @@ class CartItemController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $foods = Food::all();
+        $categories = Category::all();
+        $carts = Cart::all()->where('user_id', $user->id);
+        foreach ($carts as $cart)
+            $id = $cart->id;
+        $cartitems = CartItem::all()->where('cart_id', $id);
+        // dd(count($cartitems));
+        return view('dashboard.users.cart.index', compact('user', 'foods', 'categories', 'cartitems', 'carts', 'id'));
     }
 
     /**
@@ -29,7 +40,22 @@ class CartItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+        $carts = Cart::all()->where('user_id', $user->id);
+        foreach ($carts as $cart)
+            $id = $cart->id;
+        $cartitem = $request->validate([
+            'food_id' => ['required', 'unique:cart_items'],
+            'quantity' => ['required'],
+        ]);
+
+        $cartitem = CartItem::create([
+            'cart_id' => $id,
+            'food_id' => $request->input('food_id'),
+            'quantity' => $request->input('quantity'),
+        ]);
+        
+        return redirect()->back();
     }
 
     /**
@@ -59,8 +85,10 @@ class CartItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CartItem $cartItem)
+    public function destroy($id)
     {
-        //
+        $cartitem = CartItem::findOrFail($id);
+        $cartitem->delete();
+        return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Food;
 use App\Models\User;
 use App\Models\Category;
@@ -153,7 +154,8 @@ class FoodController extends Controller
     {
         $user = auth()->user();
         $foods = Food::All();
-        return view('dashboard.users.food.index', compact('user', 'foods'));
+        $carts = Cart::all()->where('user_id', $user->id);
+        return view('dashboard.users.food.index', compact('user', 'foods', 'carts'));
     }
 
     public function details(Food $food, $id)

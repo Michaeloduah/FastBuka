@@ -25,6 +25,13 @@
                 <a href="{{ route('user.dashboard.food.details', $food->id) }}"><button
                         class="btn btn-sm btn-outline-success m-1"><i class="bi bi-pencil-square"></i>More
                         Details</button></a>
+                <form action="{{ route('user.dashboard.cart.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" value="{{ $food->id }}" name="food_id">
+                    <input type="hidden" value="1" name="quantity">
+                    <button class="btn btn-sm btn-outline-primary m-1"><i class="bi bi-pencil-square"></i>Add to
+                        Cart</button>
+                </form>
                 <hr>
             @endforeach
         </div>

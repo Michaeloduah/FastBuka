@@ -2,13 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
+use App\Http\Controllers\FoodController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\VendorMiddleware;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Middleware\RedirectToDashboard;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FoodController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -73,6 +74,12 @@ Route::middleware('auth', 'verified')->group(function () {
                     Route::get('', [FoodController::class, 'allFood'])->name('index');
                     Route::get('show/{id}', [FoodController::class, 'details'])->name('details');
                     Route::get('search', [FoodController::class, 'search'])->name('search');
+                });
+                Route::name('cart.')->prefix('cart')->group(function (){
+                    Route::get('index', [CartItemController::class, 'index'])->name('index');
+                    Route::post('store', [CartItemController::class, 'store'])->name('store');
+                    Route::get('show/{id}', [CartItemController::class, 'showProducts'])->name('show');
+                    Route::get('{id}', [CartItemController::class, 'destroy'])->name('destroy');
                 });
             });
         });
