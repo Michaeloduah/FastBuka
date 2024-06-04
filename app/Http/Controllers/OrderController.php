@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
-use App\Http\Controllers\Controller;
+use App\Models\CartItem;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class OrderController extends Controller
 {
@@ -24,12 +28,80 @@ class OrderController extends Controller
         //
     }
 
-    /**
+    /**$
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+
+        DB::beginTransaction();
+
+        try {
+
+            $carts = Cart::all()->where('user_id', auth()->user()->id);
+            foreach ($carts as $cart)
+                $id = $cart->id;
+            $cartItems = CartItem::all()->where('cart_id', $id);
+
+            $order = $request->validate([
+                'order_number' => ['unique:orders'],
+                'total_amount' => ['required'],
+                'shipping_address' => ['required'],
+            ]);
+
+            function generateOrderNumber($length = 30)
+            {
+                // Characters to be included in the random string
+                $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                $charactersLength = strlen($characters);
+                $orderNumber = '';
+                // Generate random string
+                for ($i = 0; $i < $length; $i++) {
+                    $orderNumber .= $characters[rand(0, $charactersLength - 1)];
+                }
+                return $orderNumber;
+            }
+
+            $order_number = generateOrderNumber();
+            $status = "Pending";
+
+
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'order_number' => $order_number,
+                'status' => $status,
+                'total_amount' => $request->input('total_amount'),
+                'shipping_address' => auth()->user()->address,
+                'payment_method' => "Pending",
+                'payment_status' => "Pending",
+            ]);
+
+            $orderItem = $request->validate([
+                'food.*.quantity' => ['required', 'integer', 'min:1'],
+            ]);
+
+
+            foreach ($cartItems as $cartItem) {
+                $quantity = $request->input("food.{$cartItem->food->id}.quantity");
+
+                OrderItem::create([
+                    'order_id' => $order->id,
+                    'food_id' => $cartItem->food->id,
+                    'price' => $cartItem->food->price,
+                    'quantity' => $quantity,
+                ]);
+            }
+
+            dd($orderItem);
+
+
+            DB::commit();
+        } catch (\Exception $e) {
+            // Rollback the transaction if an exception occurs
+            DB::rollback();
+
+            return back()->with('error', 'Failed to place order. Please try again later.');
+        }
     }
 
     /**

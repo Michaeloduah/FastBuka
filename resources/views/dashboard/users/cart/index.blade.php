@@ -23,11 +23,7 @@
                     
                     <p>Discount: {{ $cartitem->food->discount }}</p>
 
-                    <div class="mb-3">
-                        <label class="form-label" for="total_amount">Total Price:</label>
-                        <input class="form-control" value="400000" type="text" id="total_amount" name="total_amount"
-                            readonly>
-                    </div>
+                    
                     @if ($errors->has('total_amount'))
                         <span class="error">
                             <span class="section-subtitle"
@@ -90,7 +86,7 @@
                     </span>
                 @endif
 
-                <button class="btn btn-sm btn-outline-info mt-3" type="submit">Place Order</button>
+                <button class="btn btn-sm btn-outline-info mt-3" type="submit"><a class="text-decoration-none" href="{{ route('user.dashboard.cart.confirm') }}">Place Order</a></button>
             {{-- </form> --}}
         @endif
         </div>

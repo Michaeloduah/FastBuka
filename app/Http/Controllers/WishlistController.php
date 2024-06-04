@@ -40,10 +40,12 @@ class WishlistController extends Controller
             'food_id' => ['required', 'unique:wishlists'],
         ]);
 
+        
         $cartitem = Wishlist::create([
             'user_id' => $user->id,
             'food_id' => $request->input('food_id'),
         ]);
+        dd($cartitem);
         
         return redirect()->back();
     }

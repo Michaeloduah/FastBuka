@@ -91,4 +91,16 @@ class CartItemController extends Controller
         $cartitem->delete();
         return redirect()->back();
     }
+
+    public function confirm() {
+        $user = auth()->user();
+        $foods = Food::all();
+        $categories = Category::all();
+        $carts = Cart::all()->where('user_id', $user->id);
+        foreach ($carts as $cart)
+            $id = $cart->id;
+        $cartitems = CartItem::all()->where('cart_id', $id);
+        $x = 0;
+        return view('dashboard.users.cart.confirm', compact('user', 'foods', 'categories', 'cartitems', 'carts', 'id', 'x',));
+    }
 }

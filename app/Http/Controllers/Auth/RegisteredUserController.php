@@ -33,7 +33,6 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'phone' => ['required', 'lowercase', 'max:255', 'unique:' . User::class],
-            'address' => ['nullable', 'min:8'],
             'password' => ['required', 'min:8'],
             'confirmpassword' => ['required_with:password', 'same:password', 'min:8'],
             'image' => ['nullable', 'mimes:jpg,png,jpeg'],
@@ -51,7 +50,6 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'address' => $request->address,
             'password' => Hash::make($request->password),
             'image' => $img_dir
         ]);
