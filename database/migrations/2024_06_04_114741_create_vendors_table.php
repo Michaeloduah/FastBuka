@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->string('business_name');
+            $table->string('CAC Number')->nullable();
+            $table->string('opening_time');
+            $table->string('business_address');
+            $table->string('business_state');
+            $table->string('business_city');
             $table->timestamps();
         });
     }
