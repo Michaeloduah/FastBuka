@@ -43,6 +43,8 @@ class FoodController extends Controller
             'image[]' => 'mimes:jpg,png,jpeg,svg',
             'price' => 'required',
             'discount' => 'required',
+            'processing_time' => 'required',
+            'ready_made' => 'required',
         ]);
 
         $fileNames = [];
@@ -63,6 +65,8 @@ class FoodController extends Controller
             'images' => $images,
             'price' => $request->input('price'),
             'discount' => $request->input('discount'),
+            'processing_time' => $request->input('processing_time'),
+            'ready_made' => $request->input('ready_made'),
         ]);
         // dd($food);
 
