@@ -21,7 +21,9 @@
                             alt="">
                     @endforeach
                     
+                    <p>Price: {{ $cartitem->food->price }}</p>
                     <p>Discount: {{ $cartitem->food->discount }}</p>
+                    <p>Preparation time: {{ $cartitem->food->processing_time }}</p>
 
                     
                     @if ($errors->has('total_amount'))

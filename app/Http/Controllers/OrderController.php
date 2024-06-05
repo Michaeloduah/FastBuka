@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Food;
 use App\Models\Order;
 use App\Models\CartItem;
 use App\Models\OrderItem;
@@ -33,11 +34,10 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
         DB::beginTransaction();
-
+        
         try {
-
+            
             $carts = Cart::all()->where('user_id', auth()->user()->id);
             foreach ($carts as $cart)
                 $id = $cart->id;
@@ -45,7 +45,7 @@ class OrderController extends Controller
 
             $order = $request->validate([
                 'order_number' => ['unique:orders'],
-                'total_amount' => ['required'],
+                // 'total_amount' => ['required'],
                 'shipping_address' => ['required'],
             ]);
 
@@ -70,37 +70,45 @@ class OrderController extends Controller
                 'user_id' => auth()->user()->id,
                 'order_number' => $order_number,
                 'status' => $status,
-                'total_amount' => $request->input('total_amount'),
+                'total_amount' => 0,
                 'shipping_address' => auth()->user()->address,
                 'payment_method' => "Pending",
                 'payment_status' => "Pending",
             ]);
 
-            $orderItem = $request->validate([
-                'food.*.quantity' => ['required', 'integer', 'min:1'],
-            ]);
+            
 
+            $totalAmount = 0;
 
             foreach ($cartItems as $cartItem) {
-                $quantity = $request->input("food.{$cartItem->food->id}.quantity");
+                $food = $cartItem->food;
+                $quantity = $cartItem->quantity;
+                $price = $food->price * $quantity;
 
-                OrderItem::create([
+                $orderitem = OrderItem::create([
                     'order_id' => $order->id,
-                    'food_id' => $cartItem->food->id,
-                    'price' => $cartItem->food->price,
+                    'food_id' => $food->id,
                     'quantity' => $quantity,
+                    'price' => $price,
                 ]);
+
+                // Update total amount
+                $totalAmount += $price;
             }
 
-            dd($orderItem);
+            // Update order total amount
+            $order->update(['total_amount' => $totalAmount]);
 
+            dump($order, $orderitem);
 
+            // Commit the transaction
             DB::commit();
-        } catch (\Exception $e) {
-            // Rollback the transaction if an exception occurs
-            DB::rollback();
 
-            return back()->with('error', 'Failed to place order. Please try again later.');
+            return response()->json(['message' => 'Order placed successfully!', 'order' => $order], 201);
+        } catch (\Exception $e) {
+            // Rollback the transaction if something goes wrong
+            DB::rollBack();
+            return response()->json(['message' => 'Order placement failed!', 'error' => $e->getMessage()], 500);
         }
     }
 
