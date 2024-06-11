@@ -32,6 +32,11 @@
         href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/css/multi-select-tag.css">
 
     <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag@3.0.1/dist/js/multi-select-tag.js"></script>
+    <style>
+        .dataTables_length {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -141,7 +146,7 @@
             <li class="nav-heading">Settings</li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('user.dashboard.editprofile') }}">
+                <a class="nav-link collapsed" href="{{ route('vendor.dashboard.editprofile') }}">
                     <i class="bi bi-person"></i>
                     <span>Profile</span>
                 </a>

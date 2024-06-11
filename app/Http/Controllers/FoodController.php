@@ -102,44 +102,44 @@ class FoodController extends Controller
     {
         $food = Food::findOrFail($id);
         $valid = $request->validate([
-            'category_id' => 'nullable',
             'name' => 'nullable',
             'description' => 'nullable',
             'image[]' => 'mimes:jpg,png,jpeg,svg',
             'price' => 'nullable',
             'discount' => 'nullable',
+            'processing_time' => 'nullable',
+            'ready_made' => 'nullable',
         ]);
-
-        $food->name = $request->name ?? $food->name;
-        $food->description = $request->description ?? $food->description;
-        $food->price = $request->price ?? $food->price;
-        $food->discount = $request->discount ?? $food->discount;
 
 
         $fileNames = [];
-        if ($request->hasFile('image[]')) {
+        if ($request->hasFile('image')) {
             foreach ($request->file('image') as $image) {
-                $imageName = $image->hashName();
-                $image->store('images/foods', 'public');
-                $fileNames[] = $imageName;
+                // Check if the image is valid
+                if ($image->isValid()) {
+                    $imageName = $image->hashName();
+                    $image->store('images/foods', 'public');
+                    $fileNames[] = $imageName;
+                } else {
+                    return('Invalid file upload');
+                }
             }
 
             $images = $fileNames;
         } else {
-            $images = $food->images;
+            $images = $food->images; // Ensure $food->images is set correctly
         }
-        $user = auth()->user()->id;
 
-        $update = [
-            'user_id' => $user,
-            'category_id' => $request->input('category_id'),
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'images' => $images,
-            'price' => $request->input('price'),
-            'discount' => $request->input('discount'),
-        ];
-        $food->update($update);
+        $food->category_id = $request->category_id ?? $food->category_id;
+        $food->name = $request->name ?? $food->name;
+        $food->description = $request->description ?? $food->description;
+        $food->price = $request->price ?? $food->price;
+        $food->discount = $request->discount ?? $food->discount;
+        $food->processing_time = $request->processing_time ?? $food->processing_time;
+        $food->ready_made = $request->ready_made ?? $food->ready_made;
+        $food->images = $images ?? $food->images;
+
+        $food->save();
 
         return redirect()->intended(route('vendor.dashboard.food.index',  absolute: false));
     }
