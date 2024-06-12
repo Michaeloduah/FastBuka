@@ -81,7 +81,6 @@ class OrderController extends Controller
                 'shipping_address' => auth()->user()->address,
                 'payment_method' => "Pending",
                 'payment_status' => "Pending",
-                'order_status' => "Pending",
             ]);
 
 

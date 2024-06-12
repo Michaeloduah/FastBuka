@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string('shipping_address');
             $table->string('payment_method');
             $table->string('payment_status');
-            $table->string('order_status');
             $table->timestamps();
         });
     }

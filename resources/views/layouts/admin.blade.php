@@ -36,6 +36,10 @@
         .dataTables_length {
             margin-bottom: 20px;
         }
+
+        .dataTables_filter {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
