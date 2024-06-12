@@ -21,12 +21,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', RedirectToDashboard::class])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 Route::middleware('auth', 'verified')->group(function () {
     Route::name('admin.')->prefix('admin')->group(function () {
         Route::middleware([AdminMiddleware::class])->group(function () {
@@ -61,6 +55,10 @@ Route::middleware('auth', 'verified')->group(function () {
                     Route::get('edit/{id}', [FoodController::class, 'edit'])->name('edit');
                     Route::post('update/{id}', [FoodController::class, 'update'])->name('update');
                     Route::get('{id}', [FoodController::class, 'destroy'])->name('destroy');
+                });
+
+                Route::name('order.')->prefix('order')->group(function () {
+                    Route::get('', [OrderController::class, 'index'])->name('index');
                 });
             });
         });

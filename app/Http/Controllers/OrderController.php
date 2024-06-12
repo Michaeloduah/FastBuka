@@ -18,7 +18,10 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $orders = Order::All()->where('vendor_id', $user->id);
+
+        return view('dashboard.vendors.order.index', compact('user', 'orders'));
     }
 
     /**
@@ -35,9 +38,9 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         DB::beginTransaction();
-        
+
         try {
-            
+
             $carts = Cart::all()->where('user_id', auth()->user()->id);
             foreach ($carts as $cart)
                 $id = $cart->id;
@@ -65,18 +68,23 @@ class OrderController extends Controller
             $order_number = generateOrderNumber();
             $status = "Pending";
 
+            foreach ($cartItems as $cartItem) {
+                $vendor = $cartItem->food->user_id;
+            }
 
             $order = Order::create([
                 'user_id' => auth()->user()->id,
+                'vendor_id' => $vendor,
                 'order_number' => $order_number,
                 'status' => $status,
                 'total_amount' => 0,
                 'shipping_address' => auth()->user()->address,
                 'payment_method' => "Pending",
                 'payment_status' => "Pending",
+                'order_status' => "Pending",
             ]);
 
-            
+
 
             $totalAmount = 0;
 
@@ -99,12 +107,11 @@ class OrderController extends Controller
             // Update order total amount
             $order->update(['total_amount' => $totalAmount]);
 
-            dump($order, $orderitem);
 
             // Commit the transaction
             DB::commit();
 
-            return response()->json(['message' => 'Order placed successfully!', 'order' => $order], 201);
+            return redirect(route('dashboard', absolute: false));
         } catch (\Exception $e) {
             // Rollback the transaction if something goes wrong
             DB::rollBack();
