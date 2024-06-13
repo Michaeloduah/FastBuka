@@ -4,14 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Controllers\FoodController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\OrderController;
 use App\Http\Middleware\VendorMiddleware;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Middleware\RedirectToDashboard;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\OrderItemController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,7 +59,11 @@ Route::middleware('auth', 'verified')->group(function () {
                 });
 
                 Route::name('order.')->prefix('order')->group(function () {
-                    Route::get('', [OrderController::class, 'index'])->name('index');
+                    Route::get('', [OrderController::class, 'indexVendor'])->name('index');
+                });
+
+                Route::name('orderitem.')->prefix('orderitem')->group(function () {
+                    Route::get('', [OrderItemController::class, 'indexVendor'])->name('index');
                 });
             });
         });

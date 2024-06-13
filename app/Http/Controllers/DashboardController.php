@@ -28,10 +28,21 @@ class DashboardController extends Controller
         $total_orders = Order::All()->where('vendor_id', $user->id);
         $total_foods = Food::All()->where('user_id', $user->id);
         $total_categories = Category::All()->where('user_id', $user->id);
+        
+        $total_orderitems = Order::where('vendor_id', $user->id)->with('orderitem')->get();
+
+        // foreach ($total_orderitems as $total_orderitem) {
+
+        // }
+        // foreach ($total_orderitem->orderitem as $total_item) {}
+        // dump($total_item);
+
+
+        $orderitems = Order::where('vendor_id', $user->id)->with('orderitem')->get()->take(5);
         $orders = Order::All()->where('vendor_id', $user->id)->sortByDesc('created_at')->take(5);
         $foods = Food::All()->where('user_id', $user->id)->sortByDesc('created_at')->take(5);
         $categories = Category::All()->where('user_id', $user->id)->sortByDesc('created_at')->take(5);
-        return view('dashboard.vendors.dashboard', compact('user', 'orders', 'foods', 'categories', 'total_orders', 'total_foods', 'total_categories'));
+        return view('dashboard.vendors.dashboard', compact('user', 'orders', 'foods', 'categories', 'orderitems', 'total_orders', 'total_foods', 'total_categories', 'total_orderitems'));
     }
 
     public function userDashboard()

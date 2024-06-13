@@ -159,10 +159,12 @@
                             </div>
                             <div class="ps-3">
                                 <h6>
-                                    @php
-                                        $x = count($total_orders);
-                                    @endphp
-                                    {{ $x }}
+                                    @foreach ($total_orderitems as $order)
+                                        @foreach ($order->orderitem as $item)
+                                            {{ $item->count() }}
+                                        @endforeach
+                                    @endforeach
+
                                 </h6>
                             </div>
                         </div>
@@ -185,7 +187,8 @@
                                 <h6>More Option</h6>
                             </li>
 
-                            <li><a class="dropdown-item" href="{{ route('vendor.dashboard.order.index') }}">See All</a></li>
+                            <li><a class="dropdown-item" href="{{ route('vendor.dashboard.order.index') }}">See All</a>
+                            </li>
                         </ul>
                     </div>
 

@@ -16,7 +16,7 @@ class OrderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function indexVendor()
     {
         $user = auth()->user();
         $orders = Order::All()->where('vendor_id', $user->id);
