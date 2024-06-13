@@ -27,7 +27,7 @@ class FoodController extends Controller
     public function create()
     {
         $user = auth()->user();
-        $categories = Category::all();
+        $categories = Category::all()->where('user_id', $user->id);
         return view('dashboard.vendors.food.create', compact('user', 'categories'));
     }
 
@@ -79,7 +79,7 @@ class FoodController extends Controller
     public function show(Food $food, $id)
     {
         $user = auth()->user();
-        $categories = Category::All();
+        $categories = Category::All()->where('user_id', $user->id);
         $food = Food::findOrFail($id);
         return view('dashboard.vendors.food.show', compact('user', 'categories', 'food'));
     }
@@ -90,7 +90,7 @@ class FoodController extends Controller
     public function edit(Food $food, $id)
     {
         $user = auth()->user();
-        $categories = Category::All();
+        $categories = Category::All()->where('user_id', $user->id);
         $food = Food::findOrFail($id);
         return view('dashboard.vendors.food.edit', compact('user', 'categories', 'food'));
     }
@@ -165,7 +165,7 @@ class FoodController extends Controller
     public function details(Food $food, $id)
     {
         $user = auth()->user();
-        $categories = Category::All();
+        $categories = Category::All()->where('user_id', $user->id);
         $food = Food::findOrFail($id);
         return view('dashboard.users.food.show', compact('user', 'categories', 'food'));
     }

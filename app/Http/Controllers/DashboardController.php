@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use view;
+use App\Models\Food;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
@@ -22,7 +25,13 @@ class DashboardController extends Controller
     public function vendorDashboard()
     {
         $user = auth()->user();
-        return view('dashboard.vendors.dashboard', compact('user'));
+        $total_orders = Order::All()->where('vendor_id', $user->id);
+        $total_foods = Food::All()->where('user_id', $user->id);
+        $total_categories = Category::All()->where('user_id', $user->id);
+        $orders = Order::All()->where('vendor_id', $user->id)->sortByDesc('created_at')->take(5);
+        $foods = Food::All()->where('user_id', $user->id)->sortByDesc('created_at')->take(5);
+        $categories = Category::All()->where('user_id', $user->id)->sortByDesc('created_at')->take(5);
+        return view('dashboard.vendors.dashboard', compact('user', 'orders', 'foods', 'categories', 'total_orders', 'total_foods', 'total_categories'));
     }
 
     public function userDashboard()

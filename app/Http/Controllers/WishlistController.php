@@ -17,7 +17,7 @@ class WishlistController extends Controller
     {
         $user = auth()->user();
         $foods = Food::all();
-        $categories = Category::all();
+        $categories = Category::all()->where('user_id', $user->id);
         $wishlists = Wishlist::all()->where('user_id', $user->id);
         return view('dashboard.users.wishlist.index', compact('user', 'foods', 'categories', 'wishlists'));
     }

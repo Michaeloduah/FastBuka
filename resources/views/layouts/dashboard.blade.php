@@ -40,7 +40,8 @@
         .dataTables_filter {
             margin-bottom: 20px;
         }
-    </style
+
+        </style
     </style>
 </head>
 
@@ -52,7 +53,8 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">FastBuka</span>
+                <img src="{{ asset('storage/' . $user->image) }}" alt="Profile" class="rounded-circle">
+                <span class="d-none d-md-block fs-6 ps-2">{{ $user->name }}</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -69,8 +71,8 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0">
-                        <img src="{{ asset('storage/' . $user->image) }}" alt="Profile" class="rounded-circle">
-                        <span class="d-none d-md-block fs-6 ps-2">{{ $user->name }}</span>
+
+                        <span class="d-none d-lg-block fs-5 fw-bolder">FastBuka</span>
                     </a><!-- End Profile Iamge Icon -->
                 </li><!-- End Profile Nav -->
 
@@ -99,19 +101,6 @@
                 </a>
                 <ul id="food-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
-                    <li class="nav-heading">Categories</li>
-
-                    <li>
-                        <a href="{{ route('vendor.dashboard.category.index') }}">
-                            <i class="bi bi-circle"></i><span>All Categories</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('vendor.dashboard.category.create') }}">
-                            <i class="bi bi-circle"></i><span>Add New Category</span>
-                        </a>
-                    </li>
-
                     <li class="nav-heading">Foods</li>
 
                     <li>
@@ -125,28 +114,60 @@
                         </a>
                     </li>
                 </ul>
-            </li><!-- End Forms Nav -->
+            </li><!-- End Food Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-collection"></i><span>Food Categories</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="category-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+                    <li class="nav-heading">Categories</li>
+
+                    <li>
+                        <a href="{{ route('vendor.dashboard.category.index') }}">
+                            <i class="bi bi-circle"></i><span>All Categories</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('vendor.dashboard.category.create') }}">
+                            <i class="bi bi-circle"></i><span>Add New Category</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Food Category Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#order-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-journal-plus"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-cart-plus"></i><span>Orders</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="order-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <ul id="order-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
 
                     <li class="nav-heading">Orders</li>
 
                     <li>
-                        <a href="">
+                        <a href="{{ route('vendor.dashboard.order.index') }}">
                             <i class="bi bi-circle"></i><span>All Orders</span>
                         </a>
                     </li>
+                </ul>
+            </li><!-- End Order Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#ordered-item-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-list-ul"></i><span>Ordered Items</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="ordered-item-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+
+                    <li class="nav-heading">Ordered Items</li>
+
                     <li>
-                        <a href="">
-                            <i class="bi bi-circle"></i><span>Ordered Items</span>
+                        <a href="#">
+                            <i class="bi bi-circle"></i><span>All Ordered Items</span>
                         </a>
                     </li>
                 </ul>
-            </li><!-- End Forms Nav -->
+            </li><!-- End Ordered Item Nav -->
 
             <li class="nav-heading">Settings</li>
 

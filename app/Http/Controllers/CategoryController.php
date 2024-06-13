@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $categories = Category::All();
+        $categories = Category::All()->where('user_id', $user->id);
         return view('dashboard.vendors.category.index', compact('user', 'categories'));
     }
 
@@ -35,13 +36,20 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = $request->validate([
-            'name' => ['required', 'unique:categories'],
+            'name' => ['required', 'unique:categories',  function ($attribute, $value, $fail) {
+                if (Category::where('user_id', Auth::id())->where('name', $value)->exists()) {
+                    $fail('The category name has already been created.');
+                }
+            }],
             'image' => ['required', 'mimes:jpg,png,jpeg,mp4']
         ]);
 
         $img_dir = $request->file('image')->store('images/category', 'public');
 
+        $user = auth()->user()->id;
+
         $category = Category::create([
+            'user_id' => $user,
             'name' => $request->input('name'),
             'image' => $img_dir
         ]);
@@ -78,7 +86,7 @@ class CategoryController extends Controller
             'name' => ['required', Rule::unique('categories')->ignore($category)],
             'image' => 'mimes:jpg,png,jpeg,mp4'
         ]);
-        
+
         $category->name = $request->name ?? $category->name;
 
         if ($request->hasFile('image')) {

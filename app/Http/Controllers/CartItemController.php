@@ -18,7 +18,7 @@ class CartItemController extends Controller
     {
         $user = auth()->user();
         $foods = Food::all();
-        $categories = Category::all();
+        $categories = Category::all()->where('user_id', $user->id);
         $carts = Cart::all()->where('user_id', $user->id);
         foreach ($carts as $cart)
             $id = $cart->id;
