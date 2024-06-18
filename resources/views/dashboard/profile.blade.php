@@ -69,7 +69,7 @@
         <div class="row my-5">
           <div class="col-md-3 col-xl-3 col-12">
             <img
-              src="./assets/images/food_1.png"
+              src="{{ asset('storage/' . auth()->user()->image) }}"
               class="img-fluid mb-5"
               alt=""
             />

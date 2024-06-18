@@ -102,6 +102,48 @@ h6 {
   max-height: 40px;
 }
 
+.nav-btn {
+  background-color: #0a3a6b;
+  color: #ffffff;
+  border: 1px solid #0a3a6b;
+  font-size: 15px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 30px;
+}
+
+.nav-btn:hover {
+  color: #0a3a6b;
+  background-color: #ffffff;
+  transition: .5s;
+  border: 1px solid #0a3a6b;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.start-100 {
+  left: 100%;
+}
+
+.translate-middle {
+  transform: translate(-50%, -50%);
+}
+
+.badge-pill {
+  border-radius: 50px;
+  font-size: 12px;
+  background-color: #0a3a6b;
+}
+
 /*--------------------------------------------------------------
 # Get Startet Button
 --------------------------------------------------------------*/
