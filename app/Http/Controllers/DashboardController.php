@@ -51,6 +51,12 @@ class DashboardController extends Controller
         return view('dashboard.users.dashboard', compact('user'));
     }
 
+    public function profile()
+    {
+        $user = auth()->user();
+        return view('dashboard.profile', compact('user'));
+    }
+
     public function editUserProfile()
     {
         $user = User::findOrFail(auth()->user()->id);

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
+use App\Http\Middleware\RedirectToDashboard;
+use App\Http\Middleware\RedirectToEditProfile;
 use App\Http\Controllers\FoodController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\OrderController;
@@ -10,7 +12,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
-use App\Http\Middleware\RedirectToDashboard;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderItemController;
 
@@ -22,7 +23,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', RedirectToDashboard::class])->name('dashboard');
 
+Route::get('/setprofile', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified', RedirectToEditProfile::class])->name('setprofile');
+
 Route::middleware('auth', 'verified')->group(function () {
+
+    Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+
     Route::name('admin.')->prefix('admin')->group(function () {
         Route::middleware([AdminMiddleware::class])->group(function () {
             Route::name('dashboard.')->prefix('dashboard')->group(function () {
