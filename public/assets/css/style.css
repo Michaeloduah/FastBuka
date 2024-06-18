@@ -107,7 +107,6 @@ h6 {
   color: #ffffff;
   border: 1px solid #0a3a6b;
   font-size: 15px;
-  padding: 10px 20px 10px 20px;
   border-radius: 30px;
 }
 
@@ -117,6 +116,13 @@ h6 {
   transition: .5s;
   border: 1px solid #0a3a6b;
 }
+
+/* @media screen and (max-width: 768px) {
+  .nav-btn {
+    font-size: 13px;
+    padding: 5px 10px 5px 10px;
+  }
+} */
 
 .position-relative {
   position: relative;

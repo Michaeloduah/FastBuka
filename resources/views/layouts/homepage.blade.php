@@ -43,23 +43,36 @@
                     <li><a class="nav-link scrollto" href="#services">Products</a></li>
                     <li><a class="nav-link scrollto" href="#portfolio">Partner</a></li>
                     <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+                    @if (!auth()->user())
+                        <div class="d-flex flex-row d-block d-lg-none">
+                            <a href="{{ route('login') }}" class="text-decoration-none" style="padding: 5px">
+                                <button class="btn nav-btn">Login</button>
+                            </a>
+                            <a href="{{ route('register') }}" class="text-decoration-none" style="padding: 5px">
+                                <button class="btn nav-btn">Register</button>
+                            </a>
+                        </div>
+                    @endif
                 </ul>
+
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
             <!-- .navbar -->
             @if (auth()->user())
                 <div class="d-flex mx-3">
                     @if (auth()->user()->account_type == 'user')
-                    <a class="nav-link mx-3 my-auto fs-4 position-relative" href="">
-                        <i class="bi bi-cart3 fs-2"></i>
-                        <span class="badge position-absolute top-0 start-100 translate-middle badge-pill">{{ count(auth()->user()->cart->cartitem) }}</span>
-                    </a>
+                        <a class="nav-link mx-3 my-auto fs-4 position-relative" href="">
+                            <i class="bi bi-cart3 fs-2"></i>
+                            <span
+                                class="badge position-absolute top-0 start-100 translate-middle badge-pill">{{ count(auth()->user()->cart->cartitem) }}</span>
+                        </a>
                     @endif
 
-                    <img src="{{ asset('storage/' . auth()->user()->image) }}" style="aspect-ratio:1/1;" width="50px" alt="" class="img-fluid rounded-circle" />
+                    <img src="{{ asset('storage/' . auth()->user()->image) }}" style="aspect-ratio:1/1;" width="50px"
+                        alt="" class="img-fluid rounded-circle" />
                 </div>
             @else
-                <div class="d-flex mx-3">
+                <div class="d-flex mx-3 d-none d-lg-block">
                     <a href="{{ route('login') }}" class="text-decoration-none">
                         <button class="btn nav-btn mx-1">Login</button>
                     </a>
