@@ -319,7 +319,7 @@
                                 @foreach ($order->orderitem as $item)
                                     <div class="activity-item d-flex">
                                         <div class="activite-label">{{ $item->food->category->name }}:</div>
-                                        <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                        <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                                         <div class="activity-content">
                                             {{ $item->food->name }}
                                         </div>
