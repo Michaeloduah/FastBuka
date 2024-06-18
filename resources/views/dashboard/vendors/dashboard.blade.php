@@ -14,7 +14,7 @@
     <div class="section dashboard">
         <div class="row">
             <!-- Food Card -->
-            <div class="col-xxl-3 col-md-3">
+            <div class="col-xxl-4 col-md-4">
                 <div class="card info-card revenue-card">
                     <div class="filter">
                         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -49,7 +49,7 @@
             </div><!-- End Food Card -->
 
             <!-- Food Categories Card -->
-            <div class="col-xxl-3 col-md-3">
+            <div class="col-xxl-4 col-md-4">
                 <div class="filter">
                     <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -100,7 +100,7 @@
             </div><!-- End Food Categories Card -->
 
             <!-- Order Card -->
-            <div class="col-xxl-3 col-md-3">
+            <div class="col-xxl-4 col-md-4">
                 <div class="card info-card sales-card">
 
                     <div class="filter">
@@ -134,44 +134,6 @@
 
                 </div>
             </div><!-- End Order Card -->
-
-            <!-- Ordered Item Card -->
-            <div class="col-xxl-3 col-md-3">
-                <div class="card info-card sales-card">
-
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>More Option</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="{{ route('vendor.dashboard.order.index') }}">See All</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Ordered Items</h5>
-
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-list-ul"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>
-                                    @foreach ($total_orderitems as $order)
-                                        @foreach ($order->orderitem as $item)
-                                            {{ $item->count() }}
-                                        @endforeach
-                                    @endforeach
-
-                                </h6>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div><!-- End Ordered Item Card -->
 
         </div>
 
@@ -344,61 +306,36 @@
                                     <h6>More Option</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="{{ route('vendor.dashboard.editprofile') }}">See
+                                <li><a class="dropdown-item" href="{{ route('vendor.dashboard.orderitem.index') }}">See
                                         All</a></li>
                             </ul>
                         </div>
 
-                        <h5 class="card-title">Profile</span></h5>
+                        <h5 class="card-title">Recent Ordered Items</span></h5>
 
                         <div class="activity">
 
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">Name:</div>
-                                <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                                <div class="activity-content">
-                                    {{ $user->name }}
-                                </div>
-                            </div><!-- End activity item-->
+                            @foreach ($total_orderitems as $order)
+                                @foreach ($order->orderitem as $item)
+                                    <div class="activity-item d-flex">
+                                        <div class="activite-label">{{ $item->food->category->name }}:</div>
+                                        <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                                        <div class="activity-content">
+                                            {{ $item->food->name }}
+                                        </div>
+                                    </div><!-- End activity item-->
+                                @endforeach
+                            @endforeach
 
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">Email:</div>
-                                <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                                <div class="activity-content">
-                                    {{ $user->email }}
-                                </div>
-                            </div><!-- End activity item-->
 
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">Phone <br> Number</div>
-                                <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                                <div class="activity-content">
-                                    {{ $user->phone }}
-                                </div>
-                            </div><!-- End activity item-->
 
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">Address</div>
-                                <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                                <div class="activity-content">
-                                    {{ $user->address }}
-                                </div>
-                            </div><!-- End activity item-->
-
-                            <div class="activity-item d-flex">
-                                <div class="activite-label">Profie <br> Picture</div>
-                                <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                                <div class="activity-content">
-                                    <img src="{{ asset('storage/' . $user->image) }}" width="100%" alt=""
-                                        class="img-fluid">
-                                </div>
-                            </div><!-- End activity item-->
 
                         </div>
 
                     </div>
                 </div>
                 <!-- End Profile -->
+
                 <!-- Profile -->
                 <div class="card">
                     <div class="card-body">

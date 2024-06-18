@@ -118,7 +118,8 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#category-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-collection"></i><span>Food Categories</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-collection"></i><span>Food Categories</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="category-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
@@ -154,7 +155,8 @@
             </li><!-- End Order Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#ordered-item-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#ordered-item-nav" data-bs-toggle="collapse"
+                    href="#">
                     <i class="bi bi-list-ul"></i><span>Ordered Items</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="ordered-item-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
@@ -162,7 +164,7 @@
                     <li class="nav-heading">Ordered Items</li>
 
                     <li>
-                        <a href="#">
+                        <a href="{{ route('vendor.dashboard.orderitem.index') }}">
                             <i class="bi bi-circle"></i><span>All Ordered Items</span>
                         </a>
                     </li>
