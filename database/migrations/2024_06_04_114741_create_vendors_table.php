@@ -15,11 +15,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('business_name');
-            $table->string('CAC Number')->nullable();
-            $table->string('opening_time');
-            $table->string('business_address');
+            $table->string('cac_number')->nullable();
+            $table->string('country');
             $table->string('business_state');
             $table->string('business_city');
+            $table->string('business_address');
+            $table->string('opening_time');
+            $table->string('closing_time');
             $table->timestamps();
         });
     }

@@ -21,7 +21,8 @@ class VendorController extends Controller
      */
     public function create()
     {
-        //
+        $user = auth()->user();
+        return view('kyb.create', compact('user'));
     }
 
     /**
@@ -29,7 +30,36 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
+        $vendor = $request->validate([
+            'business_name' => ['required', 'string', 'max:255'],
+            'cac_number' => ['nullable', 'max:7', 'unique:' . Vendor::class],
+            'business_country' => ['required', 'max:255',],
+            'business_state' => ['required', 'max:255',],
+            'business_city' => ['required', 'max:255',],
+            'business_address' => ['required', 'max:255',],
+            'opening_time' => ['required', 'max:255',],
+            'closing_time' => ['required', 'max:255',],
+        ]);
+
+        
+        $vendor = Vendor::create([
+            'user_id' => $user->id,
+            'business_name' => $request->business_name,
+            'cac_number' => $request->cac_number,
+            'business_country' => $request->business_country,
+            'business_state' => $request->business_state,
+            'business_city' => $request->business_city,
+            'business_address' => $request->business_address,
+            'opening_time' => $request->opening_time,
+            'closing_time' => $request->closing_time,
+        ]);
+        
+        $user->update(['account_type' => 'vendor']);
+        
+        return redirect()->intended(route('dashboard',  absolute: false));
+        
+
     }
 
     /**

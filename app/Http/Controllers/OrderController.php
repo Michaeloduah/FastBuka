@@ -52,7 +52,7 @@ class OrderController extends Controller
                 'shipping_address' => ['required'],
             ]);
 
-            function generateOrderNumber($length = 30)
+            function generateOrderNumber($length = 10)
             {
                 // Characters to be included in the random string
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
