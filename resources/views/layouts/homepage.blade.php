@@ -68,8 +68,11 @@
                         </a>
                     @endif
 
-                    <img src="{{ asset('storage/' . auth()->user()->image) }}" style="aspect-ratio:1/1;" width="50px"
-                        alt="" class="img-fluid rounded-circle" />
+                    <a href="{{ route('dashboard') }}">
+                        <img src="{{ asset('storage/' . auth()->user()->image) }}" style="aspect-ratio:1/1;"
+                            width="50px" alt="" class="img-fluid rounded-circle" />
+                    </a>
+
                 </div>
             @else
                 <div class="d-flex mx-3 d-none d-lg-block">

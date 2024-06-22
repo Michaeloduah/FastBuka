@@ -33,7 +33,7 @@
 
 <body>
 
-    <header id="header" class="fixed-top d-flex align-items-center">
+    <header id="header" class="sticky-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto me-md-1"><a href="/">FastBuka</a></h1>
 
@@ -61,15 +61,18 @@
             @if (auth()->user())
                 <div class="d-flex mx-3">
                     @if (auth()->user()->account_type == 'user')
-                        <a class="nav-link mx-3 my-auto fs-4 position-relative" href="">
+                        <a class="nav-link mx-3 my-auto fs-4 position-relative" href="{{ route('user.dashboard.cart.index') }}">
                             <i class="bi bi-cart3 fs-2"></i>
                             <span
                                 class="badge position-absolute top-0 start-100 translate-middle badge-pill">{{ count(auth()->user()->cart->cartitem) }}</span>
                         </a>
                     @endif
 
-                    <img src="{{ asset('storage/' . auth()->user()->image) }}" style="aspect-ratio:1/1;" width="50px"
-                        alt="" class="img-fluid rounded-circle" />
+                    <a href="{{ route('dashboard') }}">
+                        <img src="{{ asset('storage/' . auth()->user()->image) }}" style="aspect-ratio:1/1;"
+                            width="50px" alt="" class="img-fluid rounded-circle" />
+                    </a>
+
                 </div>
             @else
                 <div class="d-flex mx-3 d-none d-lg-block">

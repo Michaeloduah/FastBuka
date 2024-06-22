@@ -9,7 +9,7 @@
             <li>Email Address: {{ $user->email }}</li>
             <li>Phone Number: {{ $user->phone }}</li>
             <li>Address: {{ $user->address }}</li>
-            <img src="{{ asset('storage/'. $user->image)}}" width="15%" alt="" class="img-fluid">
+            <img src="{{ asset('storage/' . $user->image) }}" width="15%" alt="" class="img-fluid">
         </ul>
         <hr>
         <h3>Features</h3>
