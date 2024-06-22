@@ -34,6 +34,11 @@
 <body>
 
     <main class="container mt-5" style="">
+        <div class="back">
+            <a href="{{ url()->previous()  }}" class="text-decoration-none">
+                <button class="btn btn-sm"><i class="bi bi-arrow-left"></i> Back</button>
+            </a>
+        </div>
         <div class="row mx-auto" id="login-section">
             <div class="col-md-6 col-12 my-auto p-5" id="form-section">
                 <h1 class="fw-bold">Welcome Back!</h1>

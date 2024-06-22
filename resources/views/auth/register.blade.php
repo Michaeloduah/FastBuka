@@ -37,6 +37,11 @@
         <img src="{{ asset('assets/images/Section.png') }}" class="img-fluid z-0 position-relative" />
 
         <main class="container">
+            <div class="back">
+                <a href="{{ url()->previous()  }}" class="text-decoration-none">
+                    <button class="btn btn-sm"><i class="bi bi-arrow-left"></i> Back</button>
+                </a>
+            </div>
             <div class="bg-white z-3 position-relative p-5" id="register-section">
                 <h1 class="fs-1 fw-bolder">Let's Get to know you!</h1>
                 <p>We'll help you set up an account in less than a minute</p>
