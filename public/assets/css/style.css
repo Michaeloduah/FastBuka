@@ -107,6 +107,7 @@ h6 {
   color: #ffffff;
   border: 1px solid #0a3a6b;
   font-size: 15px;
+  padding: 10px 20px 10px 20px;
   border-radius: 30px;
 }
 
@@ -116,13 +117,6 @@ h6 {
   transition: .5s;
   border: 1px solid #0a3a6b;
 }
-
-/* @media screen and (max-width: 768px) {
-  .nav-btn {
-    font-size: 13px;
-    padding: 5px 10px 5px 10px;
-  }
-} */
 
 .position-relative {
   position: relative;
@@ -405,12 +399,12 @@ h6 {
 --------------------------------------------------------------*/
 .hero-section h1 {
   font-family: Arial;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 .hero-section h1 span {
   font-family: Arial;
-  font-weight:900;
+  font-weight: 900;
 }
 
 .hero-section p {
@@ -559,7 +553,7 @@ h6 {
 .hygiene .hygiene-card {
   background-color: #4a78a7;
   border-radius: 10px;
-  
+
 }
 
 .hygiene .hygiene-card p {
@@ -1086,6 +1080,10 @@ h6 {
   margin-bottom: 7%;
 }
 
+.menu-available {
+  margin-bottom: 10%;
+}
+
 .menu-product-text {
   font-size: 24px;
   font-family: Arial;
@@ -1185,3 +1183,189 @@ input[type="range"] {
 }
 
 /* end verify page  */
+
+
+/* Start Product-Page */
+.product-page-hero p {
+  font-size: 15px;
+}
+
+.product-page-hero p span {
+  font-weight: 600;
+}
+
+.food-details-info .restaurant {
+  border: 1px solid #deeeff;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.food-details-info .extras {
+  border: 1px solid #deeeff;
+  border-radius: 10px;
+  width: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 13px;
+}
+
+.food-details-info .price {
+  font-family: Arial black;
+}
+
+.food-details-info .quantity {
+  border: 1px solid #eaeaea;
+  background-color: #faf7fa;
+  padding: 13px;
+  width: 20%;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 40px;
+}
+
+.food-details-info .cart-add {
+  border-radius: 40px;
+  padding: 10px;
+  width: 40%;
+  height: 55px;
+  border: 1px solid #0a3a6b;
+  background-color: #0a3a6b;
+  color: #ffffff;
+}
+
+.food-details-info .cart-add:hover {
+  border: 1px solid #0a3a6b;
+  background-color: #ffffff;
+  color: #0a3a6b;
+}
+
+.food-details-info .cart-added {
+  border-radius: 40px;
+  padding: 13px;
+  width: 40%;
+  border: 1px solid #0a9a66;
+  background-color: #0a9a66;
+  color: #ffffff;
+}
+
+.food-details-info .cart-added:hover {
+  border: 1px solid #0a9a66;
+  background-color: #ffffff;
+  color: #0a9a66;
+}
+
+@media screen and (max-width: 768px) {
+  .food-details-info {
+    margin-top: 20px;
+  }
+
+
+}
+
+/* End Product-Page */
+
+/* Review Page */
+.review-page {
+  background-color: #f2f9ff;
+}
+
+/* End Review Page */
+
+/* Other Dishes */
+.dishes {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+/* End Other Dishes */
+
+/* Cart Page */
+.cart-food-card .delete {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  background-color: #f1b8ba;
+  border-radius: 5px;
+  font-size: 14px;
+  width: fit-content;
+  padding: 1%;
+  font-weight: 500;
+}
+
+.cart-food-detail .restaurant {
+  background-color: #f2f9ff;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.cart-food-detail .extra {
+  font-weight: normal;
+  background-color: #f2f9ff;
+  width: fit-content;
+  padding: 8px;
+  margin: 0px 5px 0px 5px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .cart-food-detail {
+    margin-top: 20px;
+  }
+
+  .cart-img {
+  }
+}
+
+
+.subtotal .checkout {
+  border-radius: 40px;
+  padding: 10px;
+  width: 40%;
+  height: 55px;
+  border: 1px solid #0a3a6b;
+  background-color: #0a3a6b;
+  color: #ffffff;
+}
+
+.subtotal .checkout:hover {
+  border: 1px solid #0a3a6b;
+  background-color: #ffffff;
+  color: #0a3a6b;
+}
+
+/* End Cart Page */
+
+.product-quantity {
+  background-color: #faf7fa;
+  border-radius: 30px;
+  width: 100%;
+  border: 1px solid #dfdfdf;
+}
+
+@media screen and (max-width:768px) {
+  .product-quantity {
+    width: 30%;
+  }
+}
+
+.product-quantity input {
+  background-color: #faf7fa;
+  width: 100%;
+}
+
+.product-quantity .button1 {
+  width: fit-content;
+  border-radius: 40px 0px 0px 40px;
+}
+
+.product-quantity .button2 {
+  width: fit-content;
+  border-radius: 0px 40px 40px 0px;
+}
+
+
+
+/* Edit Profile */
+
+/* Edit Profile */

@@ -61,7 +61,7 @@
             @if (auth()->user())
                 <div class="d-flex mx-3">
                     @if (auth()->user()->account_type == 'user')
-                        <a class="nav-link mx-3 my-auto fs-4 position-relative" href="">
+                        <a class="nav-link mx-3 my-auto fs-4 position-relative" href="{{ route('user.dashboard.cart.index') }}">
                             <i class="bi bi-cart3 fs-2"></i>
                             <span
                                 class="badge position-absolute top-0 start-100 translate-middle badge-pill">{{ count(auth()->user()->cart->cartitem) }}</span>

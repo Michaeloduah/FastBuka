@@ -93,6 +93,8 @@ Route::middleware('auth', 'verified')->group(function () {
                     Route::get('confirm', [CartItemController::class, 'confirm'])->name('confirm');
                     Route::post('store', [CartItemController::class, 'store'])->name('store');
                     Route::get('{id}', [CartItemController::class, 'destroy'])->name('destroy');
+                    Route::get('increase/{id}', [CartItemController::class, 'increase'])->name('increase');
+                    Route::get('decrease/{id}', [CartItemController::class, 'decrease'])->name('decrease');
                 });
 
                 Route::name('wishlist.')->prefix('wishlist')->group(function (){

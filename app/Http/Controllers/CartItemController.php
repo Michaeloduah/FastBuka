@@ -91,6 +91,31 @@ class CartItemController extends Controller
         $cartitem->delete();
         return redirect()->back();
     }
+    
+    public function increase($id)
+    {
+        $cartitem = Cartitem::findOrFail($id);
+
+        $cartitem->quantity += 1;
+
+        $cartitem->save();
+
+        return redirect()->back();
+    }
+    public function decrease($id)
+    {
+        $cartitem = Cartitem::findOrFail($id);
+
+        $cartitem->quantity -= 1;
+
+        if($cartitem->quantity < 1) {
+            $cartitem->quantity = 1;
+        }
+
+        $cartitem->save();
+        
+        return redirect()->back();
+    }
 
     public function confirm() {
         $user = auth()->user();
@@ -103,4 +128,5 @@ class CartItemController extends Controller
         $x = 0;
         return view('dashboard.users.cart.confirm', compact('user', 'foods', 'categories', 'cartitems', 'carts', 'id', 'x',));
     }
+    
 }
