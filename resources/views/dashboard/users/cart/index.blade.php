@@ -19,15 +19,12 @@
                                                 <a href="{{ route('user.dashboard.cart.destroy', $cartitem->id) }}"><i
                                                         class="bi bi-trash-fill text-white"></i></a>
                                             </div>
-                                            <h1>{{ $cartitem->food->images }}</h1>
-                                            @foreach ($cartitem->food->images as $image)
-                                                <a href="{{ route('user.dashboard.food.details', $cartitem->food->id) }}">
+                                            <a href="{{ route('user.dashboard.food.details', $cartitem->food->id) }}">
 
-                                                    {{-- <img class="img-fluid d-block mx-auto p-2 cart-img"
-                                                        src="{{ asset('storage/images/foods/' . $image) }}" alt=""> --}}
-
-                                                </a>
-                                            @endforeach
+                                                <img class="img-fluid d-block mx-auto p-2 cart-img"
+                                                    src="{{ asset('storage/images/foods/' . $cartitem->food->images[0]) }}"
+                                                    alt="">
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -45,10 +42,12 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="product-quantity d-flex justify-content-between mb-3">
-                                        <a href="{{ route('user.dashboard.cart.decrease', $cartitem->id) }}"><button class="btn btn-lg button1">-</button></a>
+                                        <a href="{{ route('user.dashboard.cart.decrease', $cartitem->id) }}"><button
+                                                class="btn btn-lg button1">-</button></a>
                                         <input class="form-control border border-0 text-center fs-6" type="text"
                                             value="{{ $cartitem->quantity }}" readonly />
-                                        <a href="{{ route('user.dashboard.cart.increase', $cartitem->id) }}"><button class="btn btn-lg button2">+</button></a>
+                                        <a href="{{ route('user.dashboard.cart.increase', $cartitem->id) }}"><button
+                                                class="btn btn-lg button2">+</button></a>
                                     </div>
                                 </div>
                             </div>

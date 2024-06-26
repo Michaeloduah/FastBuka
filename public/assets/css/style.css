@@ -1226,8 +1226,8 @@ input[type="range"] {
 .food-details-info .cart-add {
   border-radius: 40px;
   padding: 10px;
-  width: 40%;
-  height: 55px;
+  width: 100%;
+  height: 50px;
   border: 1px solid #0a3a6b;
   background-color: #0a3a6b;
   color: #ffffff;
@@ -1241,8 +1241,9 @@ input[type="range"] {
 
 .food-details-info .cart-added {
   border-radius: 40px;
-  padding: 13px;
-  width: 40%;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
   border: 1px solid #0a9a66;
   background-color: #0a9a66;
   color: #ffffff;

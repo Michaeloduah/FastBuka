@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Food;
 use App\Models\User;
+use App\Models\CartItem;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -81,7 +82,8 @@ class FoodController extends Controller
         $user = auth()->user();
         $categories = Category::All()->where('user_id', $user->id);
         $food = Food::findOrFail($id);
-        return view('dashboard.vendors.food.show', compact('user', 'categories', 'food'));
+        // dd($inCart);
+        return view('dashboard.vendors.food.show', compact('user', 'categories', 'food',));
     }
 
     /**
@@ -167,7 +169,13 @@ class FoodController extends Controller
         $user = auth()->user();
         $categories = Category::All()->where('user_id', $user->id);
         $food = Food::findOrFail($id);
-        return view('dashboard.users.food.show', compact('user', 'categories', 'food'));
+        // Check if the food ID exists in the cartitem table
+        $inCart = CartItem::where('food_id', $id)->exists();
+        $carts = Cart::all()->where('user_id', $user->id);
+        foreach ($carts as $cart)
+            $id = $cart->id;
+        $cartitems = CartItem::all()->where('cart_id', $id);
+        return view('dashboard.users.food.show', compact('user', 'categories', 'food', 'inCart', 'cartitems'));
     }
 
     public function search(Request $request)
