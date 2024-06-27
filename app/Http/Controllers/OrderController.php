@@ -106,6 +106,10 @@ class OrderController extends Controller
             // Update order total amount
             $order->update(['total_amount' => $totalAmount]);
 
+            // Clear user Cart
+            CartItem::where('cart_id', $id)->delete();
+            // dd($cartItems);
+
 
             // Commit the transaction
             DB::commit();
