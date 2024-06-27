@@ -98,7 +98,7 @@
                             <p class="ms-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sunt!</p>
                         </div>
                         <label for="Address" class="form-label">Shipping Address:</label>
-                        <input class="form-control" type="text" name="shipping_address">
+                        <input class="form-control rounded-pill" type="text" name="shipping_address">
                         <input type="hidden" name="order_number">
                         <input type="hidden" name="total_amount">
                         <button class="btn fw-bold confirm-btn w-100 mt-3">
