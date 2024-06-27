@@ -1,9 +1,8 @@
 <?php
 
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\UserMiddleware;
-use App\Http\Middleware\RedirectToDashboard;
-use App\Http\Middleware\RedirectToEditProfile;
 use App\Http\Controllers\FoodController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\OrderController;
@@ -12,8 +11,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Middleware\RedirectToDashboard;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderItemController;
+use App\Http\Middleware\RedirectToEditProfile;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', RedirectToDashboard::class])->name('dashboard');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/react/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard-react');
+});
+
 
 Route::get('/setprofile', function () {
     return view('dashboard');
@@ -88,7 +96,7 @@ Route::middleware('auth', 'verified')->group(function () {
                     Route::get('show/{id}', [FoodController::class, 'details'])->name('details');
                     Route::get('search', [FoodController::class, 'search'])->name('search');
                 });
-                Route::name('cart.')->prefix('cart')->group(function (){
+                Route::name('cart.')->prefix('cart')->group(function () {
                     Route::get('index', [CartItemController::class, 'index'])->name('index');
                     Route::get('confirm', [CartItemController::class, 'confirm'])->name('confirm');
                     Route::post('store', [CartItemController::class, 'store'])->name('store');
@@ -97,13 +105,13 @@ Route::middleware('auth', 'verified')->group(function () {
                     Route::get('decrease/{id}', [CartItemController::class, 'decrease'])->name('decrease');
                 });
 
-                Route::name('wishlist.')->prefix('wishlist')->group(function (){
+                Route::name('wishlist.')->prefix('wishlist')->group(function () {
                     Route::get('index', [WishlistController::class, 'index'])->name('index');
                     Route::post('store', [WishlistController::class, 'store'])->name('store');
                     Route::get('{id}', [WishlistController::class, 'destroy'])->name('destroy');
                 });
 
-                Route::name('order.')->prefix('order')->group(function (){
+                Route::name('order.')->prefix('order')->group(function () {
                     Route::get('index', [OrderController::class, 'index'])->name('index');
                     Route::post('store', [OrderController::class, 'store'])->name('store');
                     Route::get('{id}', [OrderController::class, 'destroy'])->name('destroy');
