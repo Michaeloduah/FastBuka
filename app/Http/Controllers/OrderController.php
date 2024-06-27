@@ -78,7 +78,7 @@ class OrderController extends Controller
                 'order_number' => $order_number,
                 'status' => $status,
                 'total_amount' => 0,
-                'shipping_address' => auth()->user()->address,
+                'shipping_address' => $request->input('shipping_address'),
                 'payment_method' => "Pending",
                 'payment_status' => "Pending",
             ]);

@@ -1314,8 +1314,7 @@ input[type="range"] {
     margin-top: 20px;
   }
 
-  .cart-img {
-  }
+  .cart-img {}
 }
 
 
@@ -1330,6 +1329,22 @@ input[type="range"] {
 }
 
 .subtotal .checkout:hover {
+  border: 1px solid #0a3a6b;
+  background-color: #ffffff;
+  color: #0a3a6b;
+}
+
+.confirm-btn {
+  border-radius: 40px;
+  padding: 10px;
+  width: 40%;
+  height: 55px;
+  border: 1px solid #0a3a6b;
+  background-color: #0a3a6b;
+  color: #ffffff;
+}
+
+.confirm-btn:hover {
   border: 1px solid #0a3a6b;
   background-color: #ffffff;
   color: #0a3a6b;
@@ -1370,3 +1385,20 @@ input[type="range"] {
 /* Edit Profile */
 
 /* Edit Profile */
+
+/* Checkout Page */
+.checkout-page .checkout {
+  background-color: #f2f9ff;
+  border-radius: 10px;
+}
+
+.checkout-page .checkout-food-details {
+  border: 2px solid #f2f9ff;
+  border-radius: 10px;
+}
+
+.checkout-page .checkout-price-details {
+  border: 2px solid #f2f9ff;
+  border-radius: 10px;
+}
+/* Checkout Page */
