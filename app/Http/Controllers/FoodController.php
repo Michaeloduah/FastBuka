@@ -159,7 +159,7 @@ class FoodController extends Controller
     public function allFood()
     {
         $user = auth()->user();
-        $foods = Food::All();
+        $foods = Food::paginate(2);
         $carts = Cart::all()->where('user_id', $user->id);
         return view('dashboard.users.food.index', compact('user', 'foods', 'carts'));
     }

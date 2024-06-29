@@ -2,23 +2,26 @@
 
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center mt-5">
+    <section id="hero" class="d-flex align-items-center">
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
             <div class="hero-section">
-                <img src="./assets/images/Vector3.png" class="img-fluid mt-5 hero-img" alt="" />
+                <img src="./assets/images/Vector3.png" class="img-fluid hero-img" alt="" />
                 <div class="row mt-5">
                     <div class="col-md-2 d-none d-md-block">
                         <img src="./assets/images/Vector2.png" alt="" width="50%" class="img-fluid" />
                     </div>
                     <div class="col-md-8">
                         <h1 class="text-center">
-                            Are you <span class="">Hungry?</span> Place <br />
+                            Craving a <span class="">Meal?</span> Place <br />
                             an order with FastBuka
+
                         </h1>
                         <p class="text-center">
-                            FastBuka delivers hygienic and nutritious meals from your
+                            {{-- FastBuka delivers hygienic and nutritious meals from your
                             favourite <br>restaurant to you in three simple steps anytime
-                            anywhere.
+                            anywhere. --}}
+                            FastBuka delivers hygienic and nutritious meals from your favorite <br> restaurants to you in
+                            three simple steps, anytime and anywhere.
                         </p>
                         <div class="hero-button text-center">
                             @if (!auth()->user())

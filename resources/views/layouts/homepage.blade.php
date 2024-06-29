@@ -33,9 +33,11 @@
 
 <body>
 
-    <header id="header" class="fixed-top d-flex align-items-center">
+    <header id="header" class="sticky-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto me-md-1"><a href="/">FastBuka</a></h1>
+            <h1 class="logo me-auto me-md-1"><a href="/">
+                    <img src="{{ asset('images/fastbuka.png') }}" class="img-fluid">
+                </a></h1>
 
             <nav id="navbar" class="navbar order-last order-lg-0 mx-md-auto mx-lg-auto">
                 <ul>
@@ -61,7 +63,8 @@
             @if (auth()->user())
                 <div class="d-flex mx-3">
                     @if (auth()->user()->account_type == 'user')
-                        <a class="nav-link mx-3 my-auto fs-4 position-relative" href="{{ route('user.dashboard.cart.index') }}">
+                        <a class="nav-link mx-3 my-auto fs-4 position-relative"
+                            href="{{ route('user.dashboard.cart.index') }}">
                             <i class="bi bi-cart3 fs-2"></i>
                             <span
                                 class="badge position-absolute top-0 start-100 translate-middle badge-pill">{{ count(auth()->user()->cart->cartitem) }}</span>

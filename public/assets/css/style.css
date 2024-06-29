@@ -84,8 +84,6 @@ h6 {
 
 #header .logo {
   font-size: 30px;
-  margin: 0;
-  padding: 0;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 }
@@ -99,7 +97,7 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 100%;
 }
 
 .nav-btn {
@@ -1402,3 +1400,11 @@ input[type="range"] {
   border-radius: 10px;
 }
 /* Checkout Page */
+
+img, svg {
+  vertical-align: middle;
+}
+svg path{
+
+transform: scale(0.1);
+}

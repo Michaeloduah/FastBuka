@@ -75,7 +75,7 @@
                             <input class="form-check-input" type="radio" value="Bank Transfer" name="payment_type"
                                 id="bank_transfer" />
                             <label class="form-check-label" for="bank_transfer">
-                                <h1 class="fs-5 fw-bold ms-4">Pay with bank transfer</h1>
+                                <h1 class="fs-5 fw-bold ms-4">Pay with bank transfer, P2P</h1>
                             </label>
                             <p class="ms-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sunt!</p>
                         </div>
@@ -84,7 +84,7 @@
                             <input class="form-check-input" type="radio" value="Debit Card" name="payment_type"
                                 id="debit_card" />
                             <label class="form-check-label" for="debit_card">
-                                <h1 class="fs-5 fw-bold ms-4">Pay with debit card</h1>
+                                <h1 class="fs-5 fw-bold ms-4">Pay with wallet</h1>
                             </label>
                             <p class="ms-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sunt!</p>
                         </div>
@@ -97,7 +97,7 @@
                             </label>
                             <p class="ms-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sunt!</p>
                         </div>
-                        <label for="Address" class="form-label">Shipping Address:</label>
+                        <label for="Address" class="form-label">Delivery Address:</label>
                         <input class="form-control rounded-pill" type="text" name="shipping_address">
                         <input type="hidden" name="order_number">
                         <input type="hidden" name="total_amount">

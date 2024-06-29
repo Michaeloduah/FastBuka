@@ -37,7 +37,7 @@
                                     @endphp
 
                                     @if ($foundCartItem)
-                                        <div class="product-quantity d-flex justify-content-between mb-3 me-4"
+                                        <div class="product-quantity d-flex justify-content-between  me-3"
                                             style="width: 30%;">
                                             <a href="{{ route('user.dashboard.cart.decrease', $foundCartItem->id) }}"><button
                                                     class="btn btn-lg button1">-</button></a>
@@ -60,20 +60,16 @@
                                         </a>
                                     @endif
                                 @else
-                                    {{-- <button class="btn fw-bold cart-add mx-3">
-                                        Add to cart
-                                    </button> --}}
                                     <form action="{{ route('user.dashboard.cart.store') }}" method="POST" class="">
                                         @csrf
                                         <input type="hidden" value="{{ $food->id }}" name="food_id">
                                         <input type="hidden" value="1" name="quantity">
-                                        <button class="btn fw-bold cart-add "></i>Add to
+                                        <button class="btn fw-bold cart-add"></i>Add to
                                             Cart</button>
                                     </form>
                                 @endif
-
-                                <i class="bi bi-heart my-auto fs-4 ms-4"></i>
-                                <!-- <i class="bi bi-heart-fill my-auto fs-4"></i> -->
+                                <i class="bi bi-heart mx-3 my-auto fs-4"></i>
+                                {{-- <i class="bi bi-heart-fill my-auto fs-4"></i> --}}
                             </div>
                             <p class="mt-3"><span>Food Category:</span> {{ $food->category->name }}</p>
                         </div>

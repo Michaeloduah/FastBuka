@@ -14,7 +14,7 @@
         <hr>
         <h3>Features</h3>
         <ol>
-            <li><a class="text-decoration-none" href="{{ route('user.dashboard.editprofile') }}">Edit Profile</a></li>
+            <li><a class="text-decoration-none" href="{{ route('profile') }}">Profile</a></li>
             <span>Products/Food</span>
             <li><a class="text-decoration-none" href="{{ route('user.dashboard.food.index') }}">All Foods</a></li>
             <span>Cart/Cart Items</span>
