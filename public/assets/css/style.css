@@ -1401,10 +1401,24 @@ input[type="range"] {
 }
 /* Checkout Page */
 
-img, svg {
-  vertical-align: middle;
+.pagination .page-item .page-link {
+  border: none;
+  border-radius: 50px;
+  margin: 0 5px;
+  color: #0a3a6b;
 }
-svg path{
 
-transform: scale(0.1);
+.pagination .page-item .page-link:hover {
+  background-color: #0a3a6b;
+  color: #fff;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #0a3a6b;
+  color: #fff;
+  border: none;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: #6c757d;
 }

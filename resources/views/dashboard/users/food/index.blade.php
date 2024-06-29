@@ -342,7 +342,7 @@
                 @endforeach
             </div>
             <div class="d-flex justify-content-center ">
-                {{ $foods->links() }}
+                {{ $foods->links('vendor.pagination.bootstrap-5') }}
             </div>
         </div>
     </div>
