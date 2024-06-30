@@ -41,8 +41,8 @@
 
             <nav id="navbar" class="navbar order-last order-lg-0 mx-md-auto mx-lg-auto">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#services">Products</a></li>
+                    <li><a class="nav-link scrollto active" href="{{ route('dashboard') }}">Home</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('user.dashboard.food.index') }}">Foods</a></li>
                     <li><a class="nav-link scrollto" href="#portfolio">Partner</a></li>
                     <li><a class="nav-link scrollto" href="#about">About Us</a></li>
                     @if (!auth()->user())
@@ -119,13 +119,13 @@
                         <h4>Company</h4>
                         <ul>
                             <li>
-                                <a href="#">Home</a>
+                                <a href="{{ route('dashboard') }}">Home</a>
                             </li>
                             <li>
                                 <a href="#">Our Menu</a>
                             </li>
                             <li>
-                                <a href="#">Products</a>
+                                <a href="{{ route('user.dashboard.food.index') }}">Foods</a>
                             </li>
                             <li>
                                 <a href="#">Vendors</a>

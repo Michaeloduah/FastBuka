@@ -314,14 +314,21 @@
                                 <h1 class="fs-3 me-auto fw-bolder">
                                     {{ $food->price }}.<sup>00</sup>
                                 </h1>
-                                <form action="{{ route('user.dashboard.cart.store') }}" method="POST">
-                                    @csrf
-                                    <input type="hidden" value="{{ $food->id }}" name="food_id">
-                                    <input type="hidden" value="1" name="quantity">
-                                    <button class="btn food-button px-5 py-2">
-                                        Add to Cart
-                                    </button>
-                                </form>
+                                
+                                @if ($food->in_cart)
+                                    <a href="{{ route('user.dashboard.cart.destroy', $food->id) }}">
+                                        <button class="btn food-button-add px-5 py-2">Added to cart</button>
+                                    </a>
+                                @else
+                                    <form action="{{ route('user.dashboard.cart.store') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" value="{{ $food->id }}" name="food_id">
+                                        <input type="hidden" value="1" name="quantity">
+                                        <button class="btn food-button px-5 py-2">
+                                            Add to Cart
+                                        </button>
+                                    </form>
+                                @endif
                                 <i class="bi bi-heart ms-2 my-auto fs-5"></i>
                             </div>
                         </div>

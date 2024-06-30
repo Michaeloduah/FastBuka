@@ -660,6 +660,21 @@ h6 {
   color: #0a3a6b;
   transition: 0.5s;
 }
+.food-card .food-button-add {
+  border-radius: 50px;
+  border: #0a9a66 solid 1px;
+  font-size: 15px;
+  width: 100%;
+  /* padding: ; */
+  color: #ffffff;
+  background-color: #0a9a66;
+}
+
+.food-card .food-button-add:hover {
+  background-color: #ffffff;
+  color: #0a9a66;
+  transition: 0.5s;
+}
 
 .food-card .rating {
   position: relative;

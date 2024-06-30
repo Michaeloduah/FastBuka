@@ -18,7 +18,7 @@ use App\Http\Middleware\RedirectToEditProfile;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/react/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Auth/Dashboard');
     })->name('dashboard-react');
 });
 
