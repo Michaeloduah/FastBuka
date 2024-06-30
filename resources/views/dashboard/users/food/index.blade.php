@@ -314,9 +314,12 @@
                                 <h1 class="fs-3 me-auto fw-bolder">
                                     {{ $food->price }}.<sup>00</sup>
                                 </h1>
-                                
+
                                 @if ($food->in_cart)
-                                    <a href="{{ route('user.dashboard.cart.destroy', $food->id) }}">
+                                    @php
+                                        $foundCartItem = $cartitems->firstWhere('food_id', $food->id); // Assuming $food->id is the ID you want to match
+                                    @endphp
+                                    <a href="{{ route('user.dashboard.cart.destroy', $foundCartItem->id) }}">
                                         <button class="btn food-button-add px-5 py-2">Added to cart</button>
                                     </a>
                                 @else
