@@ -20,7 +20,7 @@
                     </select>
                 </div>
                 @if ($errors->has('category_id'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('category_id') }}</span>
                     </span>
                 @endif --}}
@@ -31,7 +31,7 @@
                         placeholder="{{ $food->name }}">
                 </div>
                 @if ($errors->has('name'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('name') }}</span>
                     </span>
                 @endif
@@ -41,7 +41,7 @@
                     <textarea class="form-control" name="description" id="description" rows="3" value="{{ old('description') }}"></textarea>
                 </div>
                 @if ($errors->has('description'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('description') }}</span>
                     </span>
                 @endif
@@ -51,7 +51,7 @@
                     <input type="file" name="image[]" class="form-control" id="image[]" multiple>
                 </div>
                 @if ($errors->has('image[]'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('image[]') }}</span>
                     </span>
                 @endif
@@ -62,7 +62,7 @@
                         value="{{ old('price') }}" placeholder="{{ $food->price }}">
                 </div>
                 @if ($errors->has('price'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('price') }}</span>
                     </span>
                 @endif
@@ -73,7 +73,7 @@
                         value="{{ old('discount') }}" placeholder="{{ $food->discount }}">
                 </div>
                 @if ($errors->has('discount'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('discount') }}</span>
                     </span>
                 @endif
@@ -84,7 +84,7 @@
                         value={{ old('processing_time') }}>
                 </div>
                 @if ($errors->has('processing_time'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle"
                             style="margin-inline: 0px">{{ $errors->first('processing_time') }}</span>
                     </span>

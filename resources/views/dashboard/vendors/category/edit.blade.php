@@ -13,7 +13,7 @@
                 <input type="text" name="name" id="name" class="form-control" placeholder="{{ $category->name }}"
                     required>
                 @if ($errors->has('name'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('name') }}</span>
                     </span>
                 @endif
@@ -21,7 +21,7 @@
                 <label for="image" class="form-label">Image: </label>
                 <input type="file" name="image" id="image" value="Pending" class="form-control">
                 @if ($errors->has('image'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('image') }}</span>
                     </span>
                 @endif

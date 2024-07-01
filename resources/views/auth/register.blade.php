@@ -56,7 +56,7 @@
                                     placeholder="Full Name">
                             </div>
                             @if ($errors->has('name'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('name') }}</span>
                                 </span>
@@ -70,7 +70,7 @@
                                     placeholder="example@gmail.com">
                             </div>
                             @if ($errors->has('email'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('email') }}</span>
                                 </span>
@@ -92,7 +92,7 @@
                                     </div>
                                 </div>
                                 @if ($errors->has('phone'))
-                                    <span class="error">
+                                    <span class="error text-danger">
                                         <span class="section-subtitle"
                                             style="margin-inline: 0px">{{ $errors->first('phone') }}</span>
                                     </span>
@@ -107,7 +107,7 @@
                                     placeholder="Enter your City">
                             </div>
                             @if ($errors->has('address'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('address') }}</span>
                                 </span>
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
                             @if ($errors->has('password'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('password') }}</span>
                                 </span>
@@ -154,7 +154,7 @@
                                 </div>
                             </div>
                             @if ($errors->has('confirmpassword'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('confirmpassword') }}</span>
                                 </span>

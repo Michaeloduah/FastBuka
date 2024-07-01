@@ -56,7 +56,7 @@
                                     placeholder="Business Name">
                             </div>
                             @if ($errors->has('business_name'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('business_name') }}</span>
                                 </span>
@@ -71,7 +71,7 @@
                                     placeholder="Business CAC">
                             </div>
                             @if ($errors->has('cac_number'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('cac_number') }}</span>
                                 </span>
@@ -85,7 +85,7 @@
                                     placeholder="Country Located">
                             </div>
                             @if ($errors->has('business_country'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('business_country') }}</span>
                                 </span>
@@ -99,7 +99,7 @@
                                     placeholder="State Located">
                             </div>
                             @if ($errors->has('business_state'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('business_state') }}</span>
                                 </span>
@@ -113,7 +113,7 @@
                                     placeholder="City Located">
                             </div>
                             @if ($errors->has('business_city'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('business_city') }}</span>
                                 </span>
@@ -141,13 +141,13 @@
                                 </div>
                             </div>
                             @if ($errors->has('opening_time'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('opening_time') }}</span>
                                 </span>
                             @endif
                             @if ($errors->has('closing_time'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('closing_time') }}</span>
                                 </span>
@@ -161,7 +161,7 @@
                                     placeholder="Enter all your Store's Address"></textarea>
                             </div>
                             @if ($errors->has('business_address'))
-                                <span class="error">
+                                <span class="error text-danger">
                                     <span class="section-subtitle"
                                         style="margin-inline: 0px">{{ $errors->first('business_address') }}</span>
                                 </span>

@@ -51,7 +51,7 @@
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                             aria-describedby="emailHelp" placeholder="example@email.com" />
                         @if ($errors->has('email'))
-                            <span class="error">
+                            <span class="error text-danger">
                                 <span class="section-subtitle"
                                     style="margin-inline: 0px">{{ $errors->first('email') }}</span>
                             </span>

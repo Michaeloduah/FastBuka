@@ -14,7 +14,7 @@
                     <input type="text" name="name" class="form-control" id="InputName">
                 </div>
                 @if ($errors->has('name'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('name') }}</span>
                     </span>
                 @endif
@@ -24,7 +24,7 @@
                     <input type="email" name="email" class="form-control" id="InputEmail">
                 </div>
                 @if ($errors->has('email'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('email') }}</span>
                     </span>
                 @endif
@@ -34,7 +34,7 @@
                     <input type="tel" name="phone" class="form-control" id="InputPhone">
                 </div>
                 @if ($errors->has('phone'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('phone') }}</span>
                     </span>
                 @endif
@@ -44,7 +44,7 @@
                     <input type="text" name="address" class="form-control" id="InputAddress">
                 </div>
                 @if ($errors->has('address'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('address') }}</span>
                     </span>
                 @endif
@@ -54,7 +54,7 @@
                     <input type="password" name="password" class="form-control" id="InputPassword1">
                 </div>
                 @if ($errors->has('password'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('password') }}</span>
                     </span>
                 @endif
@@ -64,7 +64,7 @@
                     <input type="password" name="confirmpassword" class="form-control" id="InputConfirmPassword1">
                 </div>
                 @if ($errors->has('confirmpassword'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle"
                             style="margin-inline: 0px">{{ $errors->first('confirmpassword') }}</span>
                     </span>
@@ -75,7 +75,7 @@
                     <input type="file" name="image" class="form-control" id="InputImage">
                 </div>
                 @if ($errors->has('image'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('image') }}</span>
                     </span>
                 @endif

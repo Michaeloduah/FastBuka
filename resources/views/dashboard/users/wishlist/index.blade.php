@@ -41,7 +41,7 @@
                 <input type="hidden" name="user_id" id="user_id" value="{{ auth()->user()->id }}">
                 <input type="hidden" name="order_number" id="order_number">
                 @if ($errors->has('order_number'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle"
                             style="margin-inline: 0px">{{ $errors->first('order_number') }}</span>
                     </span>
@@ -49,14 +49,14 @@
 
                 <input type="hidden" name="status" id="status" value="Pending">
                 @if ($errors->has('status'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('status') }}</span>
                     </span>
                 @endif
 
                 <input type="hidden" name="payment_method" id="payment_method" value="Pending">
                 @if ($errors->has('payment_method'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle"
                             style="margin-inline: 0px">{{ $errors->first('payment_method') }}</span>
                     </span>
@@ -64,7 +64,7 @@
 
                 <input type="hidden" name="payment_status" id="payment_status" value="Pending">
                 @if ($errors->has('payment_status'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle"
                             style="margin-inline: 0px">{{ $errors->first('payment_status') }}</span>
                     </span>
@@ -72,7 +72,7 @@
 
                 <input type="hidden" name="shipping_address" id="shipping_address" value="Pending">
                 @if ($errors->has('shipping_address'))
-                    <span class="error">
+                    <span class="error text-danger">
                         <span class="section-subtitle"
                             style="margin-inline: 0px">{{ $errors->first('shipping_address') }}</span>
                     </span>
