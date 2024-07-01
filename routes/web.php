@@ -26,7 +26,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/react/dashboard', function () {
-        return Inertia::render('Auth/Dashboard');
+        return Inertia::render('Dashboard');
     })->name('dashboard-react');
 });
 
