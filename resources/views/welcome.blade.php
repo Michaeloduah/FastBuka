@@ -29,7 +29,7 @@
                                     <button class="btn button1">Sign Up</button>
                                 </a>
                             @endif
-                            <a href="#" class="text-decoration-none">
+                            <a href="{{ route('user.dashboard.food.index') }}" class="text-decoration-none">
                                 <button class="btn button2">Order now</button>
                             </a>
                         </div>
@@ -54,28 +54,6 @@
                             Hygienic and <br />
                             Nutritious Meal
                         </h1>
-                        <div class="row ">
-                            <div class="col-6 col-md-3">
-                                <div class="hygiene-card mt-3">
-                                    <p class="text-center text-white py-4 my-auto">Partner Name</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="hygiene-card mt-3">
-                                    <p class="text-center text-white py-4 my-auto">Partner Name</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="hygiene-card mt-3">
-                                    <p class="text-center text-white py-4 my-auto">Partner Name</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-md-3">
-                                <div class="hygiene-card mt-3">
-                                    <p class="text-center text-white py-4 my-auto">Partner Name</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-md-6 col-sm-12 p-5 sm-p-3">
                         <p class="text-white">
@@ -83,7 +61,8 @@
                             delivery service. Place your order and enjoy hot, freshly-prepared dishes delivered right to
                             your doorstep. Satisfaction guaranteed!
                         </p>
-                        <a href="#" class="text-decoration-none"><button class="btn hygiene-btn">See Menu</button></a>
+                        <a href="{{ route('user.dashboard.food.index') }}" class="text-decoration-none"><button
+                                class="btn hygiene-btn">See Menu</button></a>
                     </div>
                 </div>
             </div>
@@ -112,10 +91,6 @@
                                 <div class="mt-5 mx-2">
                                     <div class="food-card">
                                         <div style="background-color: #d2e8ff; border-radius: 20px">
-                                            <div class="rating text-white px-2">
-                                                <i class="bi bi-stars"></i>
-                                                <span class=""> 4.5</span>
-                                            </div>
                                             <img src="./assets/images/food_1.png" class="img-fluid d-block mx-auto py-3"
                                                 alt="" />
                                         </div>
@@ -145,10 +120,6 @@
                                 <div class="mt-5 mx-2">
                                     <div class="food-card">
                                         <div style="background-color: #d2e8ff; border-radius: 20px">
-                                            <div class="rating text-white px-2">
-                                                <i class="bi bi-stars"></i>
-                                                <span class=""> 4.5</span>
-                                            </div>
                                             <img src="./assets/images/food_2.png" class="img-fluid d-block mx-auto py-3"
                                                 alt="" />
                                         </div>
@@ -178,10 +149,6 @@
                                 <div class="mt-5 mx-2">
                                     <div class="food-card">
                                         <div style="background-color: #d2e8ff; border-radius: 20px">
-                                            <div class="rating text-white px-2">
-                                                <i class="bi bi-stars"></i>
-                                                <span class=""> 4.5</span>
-                                            </div>
                                             <img src="./assets/images/food_3.png" class="img-fluid d-block mx-auto py-3"
                                                 alt="" />
                                         </div>
@@ -211,10 +178,6 @@
                                 <div class="mt-5 mx-2">
                                     <div class="food-card">
                                         <div style="background-color: #d2e8ff; border-radius: 20px">
-                                            <div class="rating text-white px-2">
-                                                <i class="bi bi-stars"></i>
-                                                <span class=""> 4.5</span>
-                                            </div>
                                             <img src="./assets/images/food_1.png" class="img-fluid d-block mx-auto py-3"
                                                 alt="" />
                                         </div>
@@ -244,10 +207,6 @@
                                 <div class="mt-5 mx-2">
                                     <div class="food-card">
                                         <div style="background-color: #d2e8ff; border-radius: 20px">
-                                            <div class="rating text-white px-2">
-                                                <i class="bi bi-stars"></i>
-                                                <span class=""> 4.5</span>
-                                            </div>
                                             <img src="./assets/images/food_2.png" class="img-fluid d-block mx-auto py-3"
                                                 alt="" />
                                         </div>
@@ -277,10 +236,6 @@
                                 <div class="mt-5 mx-2">
                                     <div class="food-card">
                                         <div style="background-color: #d2e8ff; border-radius: 20px">
-                                            <div class="rating text-white px-2">
-                                                <i class="bi bi-stars"></i>
-                                                <span class=""> 4.5</span>
-                                            </div>
                                             <img src="./assets/images/food_3.png" class="img-fluid d-block mx-auto py-3"
                                                 alt="" />
                                         </div>
@@ -357,12 +312,11 @@
                     </div>
                 </div>
             </div>
-            </div>
         </section>
         <!-- End Restaurant Section -->
 
-        <!-- ======= Available Product Section ======= -->
-        <section id="available" class="product menu-available my-5">
+        <!-- ======= Partner Product Section ======= -->
+        {{-- <section id="available" class="product menu-available my-5">
             <div class="container" data-aos="fade-up">
                 <div class="">
                     <h1 class="text-center product-text">Our Menu</h1>
@@ -875,8 +829,51 @@
                 </div>
                 <button class="btn w-100 my-3">See More <i class="bi bi-arrow-right"></i></button>
             </div>
+        </section> --}}
+        <section id="partner" class="partner my-5 md-p-5 ">
+            <div class="container p-5" data-aos="fade-up">
+                <div class="">
+                    <h1 class="text-center partner-text">Offical Partners</h1>
+                    <p class="text-center">
+                        Our diversed selection of partners, ranging from local favourites to renowned hotspots, <br>
+                        guarantees a delicious variety to satisfy every taste and preference.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-12">
+                        <div class="partner-card m-2">
+                            <p class="text-center py-4 my-auto">HostShift</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        <div class="partner-card m-2">
+                            <p class="text-center py-4 my-auto">AfamFest</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        <div class="partner-card m-2">
+                            <p class="text-center py-4 my-auto">Block7</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        <div class="partner-card m-2">
+                            <p class="text-center py-4 my-auto">DCT Studio</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        <div class="partner-card m-2">
+                            <p class="text-center py-4 my-auto">Minister of Food</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-12">
+                        <div class="partner-card m-2">
+                            <p class="text-center py-4 my-auto">Zoho Mail</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <!-- End Available Product Section -->
+        <!-- End Partner Product Section -->
 
         <!-- Start Learn More Section -->
         <section id="learn">

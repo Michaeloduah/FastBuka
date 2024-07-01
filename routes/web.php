@@ -7,7 +7,6 @@ use App\Http\Controllers\FoodController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\OrderController;
 use App\Http\Middleware\VendorMiddleware;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
@@ -23,6 +22,14 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', RedirectToDashboard::class])->name('dashboard');
+
+Route::get('/partners', function () {
+    return view('partners');
+})->name('partners');
+
+Route::get('/about-us', function () {
+    return view('about');
+})->name('about-us');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/react/dashboard', function () {

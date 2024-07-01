@@ -781,6 +781,27 @@ h6 {
 }
 
 
+.partner {
+  /* background-color: #f2f9ff; */
+}
+
+.partner .partner-text {
+  font-family: Arial;
+  font-weight: 900;
+  color: #0a3a6b;
+}
+
+.partner .partner-card {
+  background-color: #b0e8d4;
+  border-radius: 10px;
+}
+
+.partner .partner-card p {
+  font-size: 13px;
+
+}
+
+
 
 /*--------------------------------------------------------------
 # Learn More

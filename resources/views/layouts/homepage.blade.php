@@ -42,9 +42,9 @@
             <nav id="navbar" class="navbar order-last order-lg-0 mx-md-auto mx-lg-auto">
                 <ul>
                     <li><a class="nav-link scrollto active" href="{{ route('homepage') }}">Home</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('user.dashboard.food.index') }}">Foods</a></li>
-                    <li><a class="nav-link scrollto" href="#portfolio">Partner</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('user.dashboard.food.index') }}">Our Menu</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('partners') }}">Partner</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('about-us') }}">About Us</a></li>
                     @if (!auth()->user())
                         <div class="d-flex flex-row d-block d-lg-none">
                             <a href="{{ route('login') }}" class="text-decoration-none" style="padding: 5px">
@@ -100,8 +100,8 @@
                     <div class="col-lg-4 col-md-12 footer-contact">
                         <h3>FastBuka</h3>
                         <p>
-                            <strong>Phone:</strong> +1 5589 55488 55<br />
-                            <strong>Email:</strong> info@example.com<br />
+                            <strong>Phone:</strong>+234 7026 000 076<br />
+                            <strong>Email:</strong> info@fastbuka.com<br />
                         </p>
                         <div class="social-links text-start mt-3 pt-3 pt-md-0">
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -122,7 +122,7 @@
                                 <a href="{{ route('homepage') }}">Home</a>
                             </li>
                             <li>
-                                <a href="{{ route('user.dashboard.food.index') }}">Foods</a>
+                                <a href="{{ route('user.dashboard.food.index') }}">Our Menu</a>
                             </li>
                             <li>
                                 <a href="#">Vendors</a>
@@ -143,7 +143,7 @@
                                 <a href="#">Blog</a>
                             </li>
                             <li>
-                                <a href="#">About us</a>
+                                <a href="{{ route('about-us') }}">About us</a>
                             </li>
                             <li>
                                 <a href="#">Contact</a>
@@ -165,6 +165,9 @@
                             </li>
                             <li>
                                 <a href="#">Work with Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Partnership</a>
                             </li>
                         </ul>
                     </div>
