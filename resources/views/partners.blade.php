@@ -26,34 +26,24 @@
                 </p>
             </div>
             <div class="row">
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="partner-card m-2">
                         <p class="text-center py-4 my-auto">HostShift</p>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="partner-card m-2">
                         <p class="text-center py-4 my-auto">AfamFest</p>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="partner-card m-2">
                         <p class="text-center py-4 my-auto">Block7</p>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-12">
+                <div class="col-md-3 col-sm-12">
                     <div class="partner-card m-2">
                         <p class="text-center py-4 my-auto">DCT Studio</p>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-12">
-                    <div class="partner-card m-2">
-                        <p class="text-center py-4 my-auto">Minister of Food</p>
-                    </div>
-                </div>
-                <div class="col-md-2 col-sm-12">
-                    <div class="partner-card m-2">
-                        <p class="text-center py-4 my-auto">Zoho Mail</p>
                     </div>
                 </div>
             </div>
