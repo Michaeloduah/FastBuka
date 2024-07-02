@@ -38,7 +38,7 @@
 
         <main class="container">
             <div class="back">
-                <a href="{{ url()->previous()  }}" class="text-decoration-none">
+                <a href="{{ url()->previous() }}" class="text-decoration-none">
                     <button class="btn btn-sm"><i class="bi bi-arrow-left"></i> Back</button>
                 </a>
             </div>
@@ -102,7 +102,7 @@
 
                         <div class="col-md-12 col-12 my-auto" id="form-section">
                             <div class="mb-3">
-                                <label for="InputLocation" class="form-label">Location</label>
+                                <label for="InputLocation" class="form-label">Address</label>
                                 <input type="text" name="address" class="form-control" id="InputLocation"
                                     placeholder="Enter your City">
                             </div>
@@ -117,11 +117,10 @@
                         <div class="col-md-6 col-12 my-auto" id="form-section">
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label fw-medium">Password</label>
-                                <a class="text-decoration-none float-end" href="">Forgotten Password?</a>
                                 <div class="input-group flex-nowrap">
                                     <input type="password" name="password" class="form-control border border-end-0"
-                                        placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"
-                                        id="exampleInputPassword1" />
+                                        placeholder="Password" aria-label="Password"
+                                        aria-describedby="addon-wrapping" id="exampleInputPassword1" />
                                     <span style="margin-left: -5px">
                                         <button type="button" class="input-group-text bg-white border border-start-0"
                                             id="addon-wrapping show-password" onclick="showPassword()">

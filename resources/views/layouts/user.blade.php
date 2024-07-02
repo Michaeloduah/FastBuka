@@ -36,7 +36,7 @@
     <header id="header" class="sticky-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto me-md-1"><a href="/">
-                    <img src="{{ asset('images/fastbuka.png') }}" class="img-fluid">
+                    <img src="{{ asset('images/fastbuka.png') }}" width="100%" class="img-fluid">
                 </a></h1>
 
             <nav id="navbar" class="navbar order-last order-lg-0 mx-md-auto mx-lg-auto">
