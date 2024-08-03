@@ -234,6 +234,18 @@
     </section>
     <!-- End Product Section -->
 
+    {{-- Vendors --}}
+    <section>
+        <div class="container" data-aos="fade-up">
+            <h1 class="menu-product-text">Our Restaurant and Vendors</h1>
+            <p class="">
+                Enjoy nutritional foods from our restaurant and vendors
+            </p>
+        </div>
+    </section>
+    {{-- End Vendors --}}
+
+    {{-- Food Menu --}}
     <div class="container">
         <div class="filter row">
             <div class="price-range col-md-4 col-12">
@@ -356,4 +368,5 @@
             </div>
         </div>
     </div>
+    {{-- End Food Menu --}}
 @endsection

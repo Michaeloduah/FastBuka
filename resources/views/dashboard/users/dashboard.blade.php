@@ -1,9 +1,9 @@
 @extends('layouts.user')
 
 @section('content')
-    <div class="container">
-        <h1 class="text-center">Users Dashboard</h1>
-        <h3>Your Profile</h3>
+    <div class="container my-3">
+        <h1>Dashboard</h1>
+
         <ul>
             <li>Full Name: {{ $user->name }}</li>
             <li>Email Address: {{ $user->email }}</li>
@@ -12,7 +12,7 @@
             <img src="{{ asset('storage/' . $user->image) }}" width="15%" alt="" class="img-fluid">
         </ul>
         <hr>
-        <h3>Features</h3>
+        {{-- <h3>Features</h3>
         <ol>
             <li><a class="text-decoration-none" href="{{ route('profile') }}">Profile</a></li>
             <span>Products/Food</span>
@@ -21,7 +21,7 @@
             <li><a href="{{ route('user.dashboard.cart.index') }}" class="text-decoration-none">My Cart</a></li>
             <span>Wishlist/Favourites</span>
             <li><a href="{{ route('user.dashboard.wishlist.index') }}" class="text-decoration-none">My Favourite</a></li>
-        </ol>
+        </ol> --}}
 
         <form action="{{ route('logout') }} " method="POST">
             @csrf

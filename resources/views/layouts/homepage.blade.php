@@ -92,6 +92,40 @@
 
     @yield('content')
 
+    {{-- Button Menu --}}
+    @if (auth()->user())
+        <section class="d-block d-lg-none fixed-bottom ">
+            <div class="buttom-nav">
+                <div class="d-flex justify-content-between bg-body-tertiary py-3 px-3">
+                    <div class="nav-link text-center">
+                        <a href="{{ route('dashboard') }}" class="text-decoration-none"><i
+                                class="bi bi-speedometer2"></i><br>Home</a>
+                    </div>
+                    <div class="nav-link text-center">
+                        <a href="{{ route('user.dashboard.food.index') }}" class="text-decoration-none"><i
+                                class="bi bi-list-task"></i><br>Our Menu</a>
+                    </div>
+                    <div class="nav-link text-center position-relative">
+                        <a href="{{ route('user.dashboard.cart.index') }}" class="text-decoration-none"><i
+                                class="bi bi-basket3-fill"></i><br>Orders</a>
+                    </div>
+                    <div class="nav-link text-center">
+                        <a href="" class="text-decoration-none"><i class="bi bi-wallet2"></i><br>Wallet</a>
+                    </div>
+                    <div class="nav-link text-center text-danger">
+                        <form action="{{ route('logout') }} " method="POST">
+                            @csrf
+                            <i class="bi bi-box-arrow-left"></i><br>
+                            {{-- <button class="btn"> Logout</button> --}}
+                            <button class="border border-0 fw-bold text-danger">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+    {{-- Button Menu --}}
+
     <!-- ======= Footer ======= -->
     <footer id="footer" class="">
         <div class="footer-top">
@@ -107,8 +141,6 @@
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
                         <div class="copyright mt-3">
                             &copy; Copyright <strong><span>FastBuka</span></strong>. All Rights Reserved

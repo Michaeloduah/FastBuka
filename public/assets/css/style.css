@@ -660,6 +660,7 @@ h6 {
   color: #0a3a6b;
   transition: 0.5s;
 }
+
 .food-card .food-button-add {
   border-radius: 50px;
   border: #0a9a66 solid 1px;
@@ -1435,6 +1436,7 @@ input[type="range"] {
   border: 2px solid #f2f9ff;
   border-radius: 10px;
 }
+
 /* Checkout Page */
 
 .pagination .page-item .page-link {
@@ -1458,3 +1460,34 @@ input[type="range"] {
 .pagination .page-item.disabled .page-link {
   color: #6c757d;
 }
+
+
+/* Partner Section */
+
+.partner-btn {
+  color: #ffffff;
+  background-color: #0a3a6b;
+  /* font-size: 13px; */
+  border-radius: 50px;
+  border: #0a3a6b solid 1px;
+}
+
+.partner-btn:hover {
+  background-color: #ffffff;
+  color: #0a3a6b;
+  border: #0a3a6b solid 1px;
+  transition: 0.5s;
+}
+
+/* Partner Section */
+
+/* Buttom Nav */
+.buttom-nav .nav-link a {
+  color: #000;
+  font-weight: 900;
+}
+
+.buttom-nav .nav-link a:hover {
+  color: #0a3a6b;
+}
+/* Buttom Nav */

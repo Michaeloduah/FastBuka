@@ -49,13 +49,13 @@
             <div class="container hygiene-content" data-aos="zoom-in">
                 <img src="./assets/images/Food_and_flower.png" alt="" class="img-fluid bounce" />
                 <div class="row hygiene-write">
-                    <div class="col-md-6 col-sm-12 p-5 sm-p-3">
+                    <div class="col-md-6 col-sm-12 p-3">
                         <h1 class="text-white my-auto">
                             Hygienic and <br />
                             Nutritious Meal
                         </h1>
                     </div>
-                    <div class="col-md-6 col-sm-12 p-5 sm-p-3">
+                    <div class="col-md-6 col-sm-12 p-3">
                         <p class="text-white">
                             Craving a delicious meal but short on time? We've got you covered with our fast and fresh
                             delivery service. Place your order and enjoy hot, freshly-prepared dishes delivered right to
@@ -270,44 +270,37 @@
         <!-- End Product Section -->
 
         <!-- ======= Restaurant Section ======= -->
-        <section id="restaurant" class="restaurant my-5 md-p-5 ">
+        <section id="restaurant" class="restaurant my-5 md-p-5">
             <div class="container p-5" data-aos="fade-up">
-                <div class="">
-                    <h1 class="text-center restaurant-text">Featured Restaurant</h1>
-                    <p class="text-center">
-                        Our diversed selection of restaurants, ranging from local favourites to renowned hotspots, <br>
-                        guarantees a delicious variety to satisfy every taste and preference.
-                    </p>
+                <div class="text-center">
+                    <img src="{{ asset('images/handshake.png') }}" alt="" class="img-fluid">
+                    <h1 class=" restaurant-text">Work with us</h1>
                 </div>
-                <div class="row">
-                    <div class="col-md-2 col-sm-12">
-                        <div class="restaurant-card m-2">
-                            <p class="text-center py-4 my-auto">Chicken Republic</p>
+                <div class="row mt-3">
+                    <div class="col-12 col-md-4">
+                        <div class=" shadow p-3 mb-5 bg-body-tertiary rounded">
+                            <h1 class="fs-5 text-center fw-bold">Become a Rider</h1>
+                            <p>Experience flexibility, freedom, and competitive earnings by delivering with Fastbuka.</p>
+                            <a href="#"><button class="btn partner-btn">Join Now</button></a>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="restaurant-card m-2">
-                            <p class="text-center py-4 my-auto">FoodLand</p>
-                        </div>
+                    <div class="col-12 col-md-4">
+                        <div class=" shadow p-3 mb-5 bg-body-tertiary rounded">
+
+                        <h1 class="fs-5 text-center fw-bold">Become a Vendor</h1>
+                            <p>
+                                A platform for managing menus and taking orders, along with tools to boost
+                                visibility and attract more customers.</p>
+                                <a href="{{ route('vendor.register') }}"><button class="btn partner-btn">Join Now</button></a>
+                            </div>
                     </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="restaurant-card m-2">
-                            <p class="text-center py-4 my-auto">Rodina</p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="restaurant-card m-2">
-                            <p class="text-center py-4 my-auto">Spices</p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="restaurant-card m-2">
-                            <p class="text-center py-4 my-auto">Kilmanjaro</p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="restaurant-card m-2">
-                            <p class="text-center py-4 my-auto">Iyara Kitchen</p>
+                    <div class="col-12 col-md-4">
+                        <div class=" shadow p-3 mb-5 bg-body-tertiary rounded">
+
+                        <h1 class="fs-5 text-center fw-bold">Become a Partner</h1>
+                            <p>Grow with Fastbuka! Our technology and user base can help you boost sales and unlock new
+                                opportunities!</p>
+                            <a href="#"><button class="btn partner-btn">Join Now</button></a>
                         </div>
                     </div>
                 </div>
@@ -840,34 +833,24 @@
                     </p>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
                         <div class="partner-card m-2">
                             <p class="text-center py-4 my-auto">HostShift</p>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
                         <div class="partner-card m-2">
                             <p class="text-center py-4 my-auto">AfamFest</p>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
                         <div class="partner-card m-2">
                             <p class="text-center py-4 my-auto">Block7</p>
                         </div>
                     </div>
-                    <div class="col-md-2 col-sm-12">
+                    <div class="col-md-3 col-sm-12">
                         <div class="partner-card m-2">
                             <p class="text-center py-4 my-auto">DCT Studio</p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="partner-card m-2">
-                            <p class="text-center py-4 my-auto">Minister of Food</p>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-12">
-                        <div class="partner-card m-2">
-                            <p class="text-center py-4 my-auto">Zoho Mail</p>
                         </div>
                     </div>
                 </div>

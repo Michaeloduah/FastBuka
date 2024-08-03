@@ -159,18 +159,18 @@ class FoodController extends Controller
     public function allFood()
     {
         $user = auth()->user();
+        $vendors = User::all()->where('account_type', 'vendor');
         $foods = Food::paginate(6);
         foreach ($foods as $food) {
             
             $inCart = CartItem::where('food_id', $food->id)->exists();
             $food->in_cart = $inCart;
-            // dump($food);
         }
         $carts = Cart::all()->where('user_id', $user->id);
         foreach ($carts as $cart)
             $id = $cart->id;
         $cartitems = CartItem::all()->where('cart_id', $id);
-        return view('dashboard.users.food.index', compact('user', 'foods', 'carts', 'inCart', 'cartitems'));
+        return view('dashboard.users.food.index', compact('user', 'foods', 'carts', 'inCart', 'cartitems', 'vendors'));
     }
 
     public function details(Food $food, $id)

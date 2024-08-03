@@ -43,8 +43,8 @@
                 <ul>
                     <li><a class="nav-link scrollto active" href="{{ route('dashboard') }}">Home</a></li>
                     <li><a class="nav-link scrollto" href="{{ route('user.dashboard.food.index') }}">Our Menu</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('partners') }}">Partner</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('about-us')}}">About Us</a></li>
+                    <li><a class="nav-link scrollto" href="#">Orders</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('about-us') }}">Wallet</a></li>
                     @if (!auth()->user())
                         <div class="d-flex flex-row d-block d-lg-none">
                             <a href="{{ route('login') }}" class="text-decoration-none" style="padding: 5px">
@@ -92,8 +92,32 @@
 
     @yield('content')
 
+    {{-- Button Menu --}}
+    <section class="d-block d-lg-none fixed-bottom ">
+        <div class="buttom-nav">
+            <div class="d-flex justify-content-between bg-body-tertiary py-3 px-3">
+                <div class="nav-link text-center">
+                    <a href="{{ route('dashboard') }}" class="text-decoration-none"><i
+                            class="bi bi-speedometer2"></i><br>Home</a>
+                </div>
+                <div class="nav-link text-center">
+                    <a href="{{ route('user.dashboard.food.index') }}" class="text-decoration-none"><i
+                            class="bi bi-list-task"></i><br>Our Menu</a>
+                </div>
+                <div class="nav-link text-center position-relative">
+                    <a href="{{ route('user.dashboard.cart.index') }}" class="text-decoration-none"><i
+                            class="bi bi-basket3-fill"></i><br>Orders</a>
+                </div>
+                <div class="nav-link text-center">
+                    <a href="" class="text-decoration-none"><i class="bi bi-wallet2"></i><br>Wallet</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- Button Menu --}}
+
     <!-- ======= Footer ======= -->
-    <footer id="footer" class="">
+    <footer id="footer" class="mt-1">
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -107,8 +131,6 @@
                             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
                             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
                         </div>
                         <div class="copyright mt-3">
                             &copy; Copyright <strong><span>FastBuka</span></strong>. All Rights Reserved
