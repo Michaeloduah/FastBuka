@@ -140,7 +140,7 @@ class FoodController extends Controller
         $food->processing_time = $request->processing_time ?? $food->processing_time;
         $food->ready_made = $request->ready_made ?? $food->ready_made;
         $food->images = $images ?? $food->images;
-
+        
         $food->save();
 
         return redirect()->intended(route('vendor.dashboard.food.index',  absolute: false));
